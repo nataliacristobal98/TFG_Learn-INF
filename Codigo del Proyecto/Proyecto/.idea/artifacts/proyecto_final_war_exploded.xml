@@ -1,0 +1,41 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="proyecto_final:war exploded">
+    <output-path>$PROJECT_DIR$/target/proyecto_final</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>proyecto_final</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="proyecto_final" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: jakarta.mvc:jakarta.mvc-api:2.0.0" />
+          <element id="library" level="project" name="Maven: org.eclipse.krazo:krazo-core:2.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.core:deltaspike-core-api:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.core:deltaspike-core-impl:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-data-module-api:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-partial-bean-module-api:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-jpa-module-api:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-data-module-impl:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-partial-bean-module-impl:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-proxy-module-api:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-proxy-module-impl-asm:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-jpa-module-impl:1.9.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.0" />
+          <element id="library" level="project" name="Maven: com.paypal.sdk:rest-api-sdk:1.14.0" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.6" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/proyecto_final/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="proyecto_final/web/Web" />
+    </root>
+  </artifact>
+</component>
