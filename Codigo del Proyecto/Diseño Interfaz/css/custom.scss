@@ -29,6 +29,27 @@ a:hover{
     color: $menta;
 }
 
+i{
+    font-size: xx-large;
+}
+
+select:hover{
+    background-color: $menta;
+    color: white;
+    font-weight: bold;
+}
+
+select::after{
+    background-color: $menta;
+    color: white;
+    font-weight: bold;
+}
+
+option{
+    background-color: white;
+    color: $marron;
+}
+
 // Botones
 .boton{
     color: white; 
@@ -41,6 +62,7 @@ a:hover{
     text-decoration: none;
     transition-duration: 0.4s;
     cursor: pointer;
+    height: max-content;
 }
 
 .botonLog{
@@ -102,3 +124,16 @@ a:hover{
     color: $menta;
     border-bottom-color: $menta;
   }
+
+// Login
+.fondoLearn{
+    background-color: $naranja;
+    border-radius: 10px;
+    padding: 2em;
+    color: white;
+}
+.fondoLearn2{
+    background-color: white;
+    border-radius: 10px;
+    color: $marron;
+}

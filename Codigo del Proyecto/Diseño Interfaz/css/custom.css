@@ -18,6 +18,27 @@ a:hover {
   color: #62D8BD;
 }
 
+i {
+  font-size: xx-large;
+}
+
+select:hover {
+  background-color: #62D8BD;
+  color: white;
+  font-weight: bold;
+}
+
+select::after {
+  background-color: #62D8BD;
+  color: white;
+  font-weight: bold;
+}
+
+option {
+  background-color: white;
+  color: #79524f;
+}
+
 .boton {
   color: white;
   border-radius: 8px;
@@ -30,6 +51,9 @@ a:hover {
   -webkit-transition-duration: 0.4s;
           transition-duration: 0.4s;
   cursor: pointer;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .botonLog {
@@ -88,5 +112,18 @@ a:hover {
 .nav-masthead .active {
   color: #62D8BD;
   border-bottom-color: #62D8BD;
+}
+
+.fondoLearn {
+  background-color: #F5926E;
+  border-radius: 10px;
+  padding: 2em;
+  color: white;
+}
+
+.fondoLearn2 {
+  background-color: white;
+  border-radius: 10px;
+  color: #79524f;
 }
 /*# sourceMappingURL=custom.css.map */
