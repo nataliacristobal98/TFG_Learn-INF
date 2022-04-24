@@ -35,11 +35,23 @@ public class AlumnoService {
         String codigoAlumnoNuevo = profesorEncontrado.getCodigoProfesor() + x;
 
         if(icono.equals("icono1")){
-            icono = "/proyecto_final/resources/img/icono1.jpg";
+            icono = "/proyecto_final/resources/img/icon1.jpg";
         }else if(icono.equals("icono2")){
-            icono = "/proyecto_final/resources/img/icono2.jpg";
-        } else{
-            icono = "/proyecto_final/resources/img/icono3.jpg";
+            icono = "/proyecto_final/resources/img/icon2.jpg";
+        }else if(icono.equals("icono3")){
+            icono = "/proyecto_final/resources/img/icon3.jpg";
+        }else if(icono.equals("icono4")){
+            icono = "/proyecto_final/resources/img/icon4.jpg";
+        }else if(icono.equals("icono5")){
+            icono = "/proyecto_final/resources/img/icon5.jpg";
+        }else if(icono.equals("icono6")){
+            icono = "/proyecto_final/resources/img/icon6.jpg";
+        }else if(icono.equals("icono7")){
+            icono = "/proyecto_final/resources/img/icon7.jpg";
+        }else if(icono.equals("icono8")){
+            icono = "/proyecto_final/resources/img/icon8.jpg";
+        }else{
+            icono = "/proyecto_final/resources/img/icon9.jpg";
         }
 
         String cadenaNormalize = Normalizer.normalize(nombre, Normalizer.Form.NFD);

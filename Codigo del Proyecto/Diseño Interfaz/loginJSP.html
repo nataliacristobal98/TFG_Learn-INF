@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>3 - SignUp</title>
+    <title>2 - Login</title>
     <!--Favicon-->
     <link rel="icon" href="${pageContext.request.contextPath}/resources/img/Logo1.png">
 
@@ -83,7 +83,8 @@
     <section class="container mt-4">
         <div class="row">
             <figure class="figure text-center col-xl-5 col-md-8 col-sx-10 mx-auto mb-0">
-                <img src="${pageContext.request.contextPath}/resources/img/SignUp3.png" class="figure-img img-fluid w-75">
+                <img src="${pageContext.request.contextPath}/resources/img/Login3.png"
+                     class="figure-img img-fluid">
             </figure>
         </div>
     </section>
@@ -98,67 +99,12 @@
                     <div class="row">
                         <div class="col-xl-11 col-md-11 col-sx-11 mx-auto mb-3 py-2 fondoLearn2">
 
-                            <form action="${mvc.basePath}/signup/signup" method="post" class="px-4 py-2">
+                            <form action="${mvc.basePath}/login/login" class="px-4 py-2">
                                 <div class="text-start">
-                                    <p class="mt-1 mb-0 mx-2 fw-bold">Nombre y apellidos:</p>
-                                    <input class="form-control" id="nombre" name="nombre"
-                                           placeholder="Ej: Rosario Martinez Garcia" required>
-                                </div>
-                                <div class="text-start">
-                                    <p class="mt-3 mb-0 mx-2 fw-bold">Email:</p>
-                                    <input class="form-control" id="email" name="email"
-                                           placeholder="Ej: miemail@gmail.com" required>
-                                </div>
-                                <div class="text-start">
-                                    <p class="mt-3 mb-0 mx-2 fw-bold">Icono:</p>
-                                    <div class="form-check text-center" id="icono">
-                                        <div class="d-inline-block text-center">
-                                            <img src="${pageContext.request.contextPath}/resources/img/icon1.jpg" height="100" width="100">
-                                            <br><input type="radio" name="icono" value="icono1">
-                                        </div>
+                                    <p class="mt-1 mb-0 mx-2 fw-bold">Email / Código de Usuario</p>
+                                    <input class="form-control" id="codigo" name="codigo"
+                                           placeholder="Ej: miemail@gmail.com / A001" required>
 
-                                        <div class="d-inline-block text-center">
-                                            <img src="${pageContext.request.contextPath}/resources/img/icon2.jpg" height="100" width="100">
-                                            <br><input type="radio" name="icono" value="icono2">
-                                        </div>
-
-                                        <div class="d-inline-block text-center">
-                                            <img src="${pageContext.request.contextPath}/resources/img/icon3.jpg" height="100" width="100">
-                                            <br><input type="radio" name="icono" value="icono3">
-                                        </div>
-
-                                        <div class="d-inline-block text-center">
-                                            <img src="${pageContext.request.contextPath}/resources/img/icon4.jpg" height="100" width="100">
-                                            <br><input type="radio" name="icono" value="icono4">
-                                        </div>
-
-                                        <div class="d-inline-block text-center">
-                                            <img src="${pageContext.request.contextPath}/resources/img/icon5.jpg" height="100" width="100">
-                                            <br><input type="radio" name="icono" value="icono5">
-                                        </div>
-
-                                        </br>
-
-                                        <div class="d-inline-block text-center">
-                                            <img src="${pageContext.request.contextPath}/resources/img/icon6.jpg" height="100" width="100">
-                                            <br><input type="radio" name="icono" value="icono6">
-                                        </div>
-
-                                        <div class="d-inline-block text-center">
-                                            <img src="${pageContext.request.contextPath}/resources/img/icon7.jpg" height="100" width="100">
-                                            <br><input type="radio" name="icono" value="icono7">
-                                        </div>
-
-                                        <div class="d-inline-block text-center">
-                                            <img src="${pageContext.request.contextPath}/resources/img/icon8.jpg" height="100" width="100">
-                                            <br><input type="radio" name="icono" value="icono8">
-                                        </div>
-
-                                        <div class="d-inline-block text-center">
-                                            <img src="${pageContext.request.contextPath}/resources/img/icon9.jpg" height="100" width="100">
-                                            <br><input type="radio" name="icono" value="icono9">
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="text-start">
@@ -167,29 +113,24 @@
                                         <input id="txtPassword" name="contrasena" type="password"
                                                class="form-control" required>
                                         <span class="input-group-btn">
-                                                        <button id="show_password" class="boton botonSign px-3" type="button"
-                                                                onclick="mostrarPassword()"><i class="bi bi-eye icon"
-                                                                                               style="font-size: larger;"></i></button>
+                                                        <button id="show_password" class="boton botonSign px-3"
+                                                                type="button" onclick="mostrarPassword()"><i
+                                                                class="bi bi-eye icon"
+                                                                style="font-size: larger;"></i></button>
                                                     </span>
                                     </div>
                                 </div>
 
 
-                                <div class="text-start mb-5">
-                                    <p class="mt-3 mb-0 mx-2 fw-bold">Profesor asignado:</p>
-                                    <select class="form-select" id="profesor" name="profesor" required>
-                                        <option selected disabled>Selecciona un profesor</option>
-                                        <c:forEach var="profesor" items="${profesores}">
-                                            <option value="${profesor.id}">${profesor.nombre}</option>
-                                        </c:forEach>
-                                    </select>
+                                <div class="checkbox mb-3 text-center">
+                                    <label><input type="checkbox" value="remember-me"> Remember me</label>
                                 </div>
 
-
                                 <div class="text-center">
-                                    <button class="btn-lg boton botonSign" type="submit">Registrarse</button>
-                                    <p class="mt-2 mb-3 text-muted small">*¿Ya tienes cuenta? <a href="${mvc.basePath}/login">¡Inicia
-                                        sesión!</a></p>
+                                    <button class="btn-lg boton botonSign w-50"
+                                            type="submit">Iniciar</button>
+                                    <p class="mt-2 mb-3 text-muted small">¿No tienes una cuenta? <a
+                                            href="${mvc.basePath}/signup">¡Regístrate ahora!</a></p>
                                 </div>
 
                             </form>

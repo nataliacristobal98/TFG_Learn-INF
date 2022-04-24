@@ -1,101 +1,202 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html lang="en" class="h-100">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inicia Sesión</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/logo.png">
+    <title>2 - Login</title>
+    <!--Favicon-->
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/Logo1.png">
 
-    <!-- Bootstrap, JQUERY-->
+    <!--Bootstrap, JavaScript-->
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/css/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap-icons/font/bootstrap-icons.css"
+          rel="stylesheet">
     <script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
-    <!-- CSS -->
-    <link href="${pageContext.request.contextPath}/resources/css/signin.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/css/cover.css" rel="stylesheet">
-
+    <!--CSS-->
+    <link href="${pageContext.request.contextPath}/resources/css/custom.css" rel="stylesheet">
 </head>
 
-<body class="d-flex h-100 bg-dark">
+<body class="d-flex flex-column h-100">
 
-<div class="cover-container d-flex p-3 flex-column w-100" style="background-image: url('${pageContext.request.contextPath}/resources/img/fondo.jpg');">
-
-    <header class="mb-auto p-3 rounded-3" style="background-color: #e33d6d; border: 4px solid #fefefe">
-        <div class="text-light">
-            <a href="${mvc.basePath}/portada" class="text-light">
-                <h3 class="float-md-start mb-0 mt-1">WebRUs</h3>
+<header>
+    <div class="navbar navbar-dark shadow-sm">
+        <div class="container">
+            <a href="${mvc.basePath}/portada">
+                <img src="${pageContext.request.contextPath}/resources/img/Logo2.png" alt=""
+                     style="width: 250px;">
             </a>
 
-            <nav class="nav nav-masthead float-md-end">
-                <a href="${mvc.basePath}/mundos/mundo" class="nav-link" aria-current="page" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi bi-globe2 text-light" viewBox="0 0 16 16">
-                        <path fill="white" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05c.362.184.763.349 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5h2.49zm1.4-2.741a12.344 12.344 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.612 13.612 0 0 1 7.5 10.91V8.5H4.51zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696c.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.963 6.963 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872A12.63 12.63 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008h2.49zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343a7.765 7.765 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z"/>
-                    </svg>
+            <nav class="nav nav-masthead float-md-end text-white">
+                <a href="${mvc.basePath}/mundos/mundo"
+                   class="nav-link text-white d-none d-md-block d-lg-block">
+                    <i class="bi bi-globe2"></i>
                 </a>
 
-                <a href="${mvc.basePath}/perfil" class="nav-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" class="bi bi-person-video2 text-light" viewBox="0 0 16 16">
-                        <path fill="white" d="M10 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                        <path fill="white" d="M2 1a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2ZM1 3a1 1 0 0 1 1-1h2v2H1V3Zm4 10V2h9a1 1 0 0 1 1 1v9c0 .285-.12.543-.31.725C14.15 11.494 12.822 10 10 10c-3.037 0-4.345 1.73-4.798 3H5Zm-4-2h3v2H2a1 1 0 0 1-1-1v-1Zm3-1H1V8h3v2Zm0-3H1V5h3v2Z" />
-                    </svg>
+                <a href="${mvc.basePath}/perfil" class="nav-link text-white d-none d-md-block d-lg-block">
+                    <i class="bi bi-person-workspace"></i>
                 </a>
 
-                <div class="text-end mx-4">
-                    <a href="${mvc.basePath}/login" class="btn btn-outline-light me-2 text-white" style="background-color: #fbc46a; border-color: #fab544">Login</a>
-                    <a href="${mvc.basePath}/signup" class="btn text-white" style="background-color: #f7a365; border-color: #E38B00FF">Sign-up</a>
+                <a href="#" class="nav-link text-white d-none d-md-block d-lg-block">
+                    <i class="bi bi-trophy"></i>
+                </a>
+
+
+                <a href="${mvc.basePath}/login" type="button"
+                   class="boton botonLog mt-2 mx-4 me-2 d-none d-sm-block">Login</a>
+                <a href="${mvc.basePath}/signup" type="button"
+                   class="boton botonSign mt-2 d-none d-sm-block">Sign-up</a>
+                <!--<button type="button" class="boton botonSign d-none d-lg-block">Sign-up</button>-->
+
+
+
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="p-4">
+                        <a href="${mvc.basePath}/perfil" type="button" class="boton botonRojo">Perfil</a>
+                        <a href="${mvc.basePath}/login" type="button" class="boton botonLog">Login</a>
+                        <a href="${mvc.basePath}/signup" type="button" class="boton botonSign">Sign-up</a>
+                    </div>
                 </div>
+                <nav class="navbar navbar-light d-sm-none text-end">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler botonMenu" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarToggleExternalContent"
+                                aria-controls="navbarToggleExternalContent" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </nav>
+
             </nav>
         </div>
-    </header>
+    </div>
+</header>
 
-    <main class="p-3 mt-0 rounded-3 text-center w-25" style="background-color: rgba(255,255,255,0.61); margin-inline: auto;">
-        <form action="${mvc.basePath}/login/login" method="post" class="w-75" style="margin-inline: auto;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                 class="bi bi-door-open" viewBox="0 0 16 16">
-                <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z" />
-                <path
-                        d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z" />
-            </svg>
-            <h1 class="h3 mb-3 fw-normal">Inicia sesión</h1>
+<main>
 
-            <div class="text-start">
-                <p class="mt-1 mb-0">Código de Alumno:</p>
-                <input class="form-control" id="codigo" name="codigo" placeholder="Ej: A001" maxlength="4" required>
+    <section class="container mt-4">
+        <div class="row">
+            <figure class="figure text-center col-xl-5 col-md-8 col-sx-10 mx-auto mb-0">
+                <img src="${pageContext.request.contextPath}/resources/img/Login3.png"
+                     class="figure-img img-fluid">
+            </figure>
+        </div>
+    </section>
+
+    <section class="py-5 pt-0 container">
+        <div class="row">
+            <div class="col-xl-8 col-md-11 col-xs-12 mx-auto fondoLearn">
+
+
+
+                <section class="container">
+                    <div class="row">
+                        <div class="col-xl-11 col-md-11 col-sx-11 mx-auto mb-3 py-2 fondoLearn2">
+
+                            <form action="${mvc.basePath}/login/login" method="post" class="px-4 py-2">
+                                <div class="text-start">
+                                    <p class="mt-1 mb-0 mx-2 fw-bold">Email / Código de Usuario</p>
+                                    <input class="form-control" id="codigo" name="codigo"
+                                           placeholder="Ej: miemail@gmail.com / A001" required>
+
+                                </div>
+
+                                <div class="text-start">
+                                    <p class="mt-3 mb-0 mx-2 fw-bold">Contraseña:</p>
+                                    <div class="input-group">
+                                        <input id="txtPassword" name="contrasena" type="password"
+                                               class="form-control" required>
+                                        <span class="input-group-btn">
+                                                        <button id="show_password" class="boton botonSign px-3"
+                                                                type="button" onclick="mostrarPassword()"><i
+                                                                class="bi bi-eye icon"
+                                                                style="font-size: larger;"></i></button>
+                                                    </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="checkbox mb-3 text-center">
+                                    <label><input type="checkbox" value="remember-me"> Remember me</label>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn-lg boton botonSign w-50"
+                                            type="submit">Iniciar</button>
+                                    <p class="mt-2 mb-3 text-muted small">¿No tienes una cuenta? <a
+                                            href="${mvc.basePath}/signup">¡Regístrate ahora!</a></p>
+                                </div>
+
+                            </form>
+
+
+
+                        </div>
+                    </div>
+                </section>
 
             </div>
+        </div>
+    </section>
 
-            <div class="text-start">
-                <p class="mt-3 mb-0">Contraseña:</p>
-                <div class="input-group">
-                    <input id="txtPassword" name="contrasena" type="password" class="form-control" required>
-                    <span class="input-group-btn">
-                        <button id="show_password" class="btn" style="background-color: #f7a365; color: #ffffff" type="button" onclick="mostrarPassword()"> <span class="bi bi-eye icon"></span> </button>
-                </span>
+
+</main>
+
+<footer class="footer mt-auto py-3 text-white">
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-xl-12 col-md-12 text-center mt-3">
+                <h5>Acerca de Learn-INF</h5>
+                <p>“Learn-INF” consiste en una web interactiva para niños con el objetivo de que aprendan los
+                    principios básicos de la programación.
+                    Con una dinámica parecida a un videojuego de preguntas y respuestas, pero con logros y un diseño
+                    dinámico para ellos.
+                    El nombre es una combinación de la palabra “Learn”, cuyo significado es aprender en inglés, y de
+                    la abreviatura “INF”,
+                    la cual procede de INFormation.</p>
+
+                <div class="text-center gap-2">
+                    <a href="#" class="mx-1">
+                        <i class="bi bi-discord"></i>
+                    </a>
+                    <a href="#" class="mx-1">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="#" class="mx-1">
+                        <i class="bi bi-pinterest"></i>
+                    </a>
+                    <a href="#" class="mx-1">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="#" class="mx-1">
+                        <i class="bi bi-youtube"></i>
+                    </a>
                 </div>
+
             </div>
+        </div>
 
 
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
-            <button class="w-75 btn btn-lg" type="submit" style="background-color: #f7a365; color: #ffffff;border-color: #E38B00FF">Iniciar</button>
+        <div class="d-flex justify-content-between pt-4 my-4 border-top">
+            <p>© 2022 Learn-INF. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
-            <p class="mt-5 mb-3 text-muted">¿No tienes cuenta? <a href="${mvc.basePath}/signup"
-                                                                  style="color: #6d2b7c;">Registrate</a></p>
-        </form>
-    </main>
 
-    <footer class="mt-auto text-center text-light">
-        <p>Si quieres apoyar nuestro trabajo: <a href="${mvc.basePath}/donacion" class="text-warning">Donaciones</a></p>
-    </footer>
-</div>
+
+<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
 
 </body>
 

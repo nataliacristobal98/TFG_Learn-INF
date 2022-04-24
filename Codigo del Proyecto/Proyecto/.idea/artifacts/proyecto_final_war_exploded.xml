@@ -28,8 +28,6 @@
           <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-proxy-module-impl-asm:1.9.4" />
           <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-jpa-module-impl:1.9.4" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.0" />
-          <element id="library" level="project" name="Maven: com.paypal.sdk:rest-api-sdk:1.14.0" />
-          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.6" />
         </element>
       </element>
       <element id="directory" name="META-INF">

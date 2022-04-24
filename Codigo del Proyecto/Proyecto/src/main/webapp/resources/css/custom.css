@@ -1,0 +1,129 @@
+header {
+  background-color: #79524f;
+}
+
+footer {
+  background-color: #79524f;
+}
+
+a {
+  color: #F5926E;
+  font-weight: bold;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #62D8BD;
+}
+
+i {
+  font-size: xx-large;
+}
+
+select:hover {
+  background-color: #62D8BD;
+  color: white;
+  font-weight: bold;
+}
+
+select::after {
+  background-color: #62D8BD;
+  color: white;
+  font-weight: bold;
+}
+
+option {
+  background-color: white;
+  color: #79524f;
+}
+
+.boton {
+  color: white;
+  border-radius: 8px;
+  border-style: none;
+  padding: 10px 24px;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  cursor: pointer;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.botonLog {
+  background-color: #F5926E;
+}
+
+.botonLog:hover {
+  background-color: #f37547;
+  color: white;
+}
+
+.botonSign {
+  background-color: #62D8BD;
+}
+
+.botonSign:hover {
+  background-color: #48ccad;
+  color: white;
+}
+
+.botonRojo {
+  background-color: #E54D4D;
+  color: white;
+}
+
+.botonRojo:hover {
+  background-color: #db3535;
+  color: white;
+}
+
+.botonMenu {
+  background-color: #F5926E;
+}
+
+.navbar-dark .navbar-toggler {
+  color: #f37547;
+}
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: #60d6bbd0;
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #62D8BD;
+  border-bottom-color: #62D8BD;
+}
+
+.fondoLearn {
+  background-color: #F5926E;
+  border-radius: 10px;
+  padding: 2em;
+  color: white;
+}
+
+.fondoLearn2 {
+  background-color: white;
+  border-radius: 10px;
+  color: #79524f;
+}
+/*# sourceMappingURL=custom.css.map */
