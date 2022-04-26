@@ -15,3 +15,17 @@ function mostrarPassword(){
         $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
     });
 });
+
+function validateEmail() {
+    var regex = /(^[^@]+@[^@]+\.[a-zA-Z]{2,}$)/;
+    var matricula = document.getElementById("email");
+    var validacion = regex.test(matricula);
+    console.log(validacion);
+
+    if(validacion == true) {
+       alert("SI")
+    }
+    else {
+        alert("NO")
+    }
+}
