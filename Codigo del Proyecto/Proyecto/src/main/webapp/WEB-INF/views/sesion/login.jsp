@@ -33,38 +33,40 @@
             </a>
 
             <nav class="nav nav-masthead float-md-end text-white">
-                <a href="${mvc.basePath}/mundos/mundo"
-                   class="nav-link text-white d-none d-md-block d-lg-block">
+                <a href="${mvc.basePath}/mundos/mundo" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-globe2"></i>
                 </a>
 
-                <a href="${mvc.basePath}/perfil" class="nav-link text-white d-none d-md-block d-lg-block">
+                <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-person-workspace"></i>
                 </a>
 
-                <a href="#" class="nav-link text-white d-none d-md-block d-lg-block">
+                <a href="#" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-trophy"></i>
                 </a>
 
 
                 <a href="${mvc.basePath}/login" type="button"
-                   class="boton botonLog mt-2 mx-4 me-2 d-none d-sm-block">Login</a>
+                   class="buttonCustom buttonOrange mt-2 mx-4 me-2 d-none d-sm-block">Login</a>
                 <a href="${mvc.basePath}/signup" type="button"
-                   class="boton botonSign mt-2 d-none d-sm-block">Sign-up</a>
-                <!--<button type="button" class="boton botonSign d-none d-lg-block">Sign-up</button>-->
+                   class="buttonCustom buttonMint mt-2 d-none d-sm-block">Sign-up</a>
+                <!--<button type="button" class="buttonCustom buttonMint d-none d-lg-block">Sign-up</button>-->
 
 
 
                 <div class="collapse" id="navbarToggleExternalContent">
                     <div class="p-4">
-                        <a href="${mvc.basePath}/perfil" type="button" class="boton botonRojo">Perfil</a>
-                        <a href="${mvc.basePath}/login" type="button" class="boton botonLog">Login</a>
-                        <a href="${mvc.basePath}/signup" type="button" class="boton botonSign">Sign-up</a>
+                        <button href="${mvc.basePath}/perfil" type="button"
+                                class="buttonCustom buttonRed">Perfil</button>
+                        <button href="${mvc.basePath}/login" type="button"
+                                class="buttonCustom buttonOrange">Login</button>
+                        <button href="${mvc.basePath}/signup" type="button"
+                                class="buttonCustom buttonMint">Sign-up</button>
                     </div>
                 </div>
                 <nav class="navbar navbar-light d-sm-none text-end">
                     <div class="container-fluid">
-                        <button class="navbar-toggler botonMenu" type="button" data-bs-toggle="collapse"
+                        <button class="navbar-toggler buttonMenu" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarToggleExternalContent"
                                 aria-controls="navbarToggleExternalContent" aria-expanded="false"
                                 aria-label="Toggle navigation">
@@ -91,13 +93,11 @@
 
     <section class="py-5 pt-0 container">
         <div class="row">
-            <div class="col-xl-8 col-md-11 col-xs-12 mx-auto fondoLearn">
-
-
+            <div class="col-xl-8 col-md-11 col-xs-12 mx-auto bgLearn">
 
                 <section class="container">
                     <div class="row">
-                        <div class="col-xl-11 col-md-11 col-sx-11 mx-auto mb-3 py-2 fondoLearn2">
+                        <div class="col-xl-11 col-md-11 col-sx-11 mx-auto mb-3 py-2 bgLearn2">
 
                             <form action="${mvc.basePath}/login/login" method="post" class="px-4 py-2">
                                 <div class="text-start">
@@ -113,7 +113,7 @@
                                         <input id="txtPassword" name="contrasena" type="password"
                                                class="form-control" required>
                                         <span class="input-group-btn">
-                                                        <button id="show_password" class="boton botonSign px-3"
+                                                        <button id="show_password" class="buttonCustom buttonMint px-3"
                                                                 type="button" onclick="mostrarPassword()"><i
                                                                 class="bi bi-eye icon"
                                                                 style="font-size: larger;"></i></button>
@@ -127,7 +127,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <button class="btn-lg boton botonSign w-50"
+                                    <button class="btn-lg buttonCustom buttonMint w-50"
                                             type="submit">Iniciar</button>
                                     <p class="mt-2 mb-3 text-muted small">¿No tienes una cuenta? <a
                                             href="${mvc.basePath}/signup">¡Regístrate ahora!</a></p>
@@ -155,29 +155,32 @@
         <div class="row">
             <div class="col-xl-12 col-md-12 text-center mt-3">
                 <h5>Acerca de Learn-INF</h5>
-                <p>“Learn-INF” consiste en una web interactiva para niños con el objetivo de que aprendan los
+                <p>“Learn-INF” consiste en una web interactiva para niños con el objetivo de que aprendan
+                    los
                     principios básicos de la programación.
-                    Con una dinámica parecida a un videojuego de preguntas y respuestas, pero con logros y un diseño
+                    Con una dinámica parecida a un videojuego de preguntas y respuestas, pero con logros y
+                    un diseño
                     dinámico para ellos.
-                    El nombre es una combinación de la palabra “Learn”, cuyo significado es aprender en inglés, y de
+                    El nombre es una combinación de la palabra “Learn”, cuyo significado es aprender en
+                    inglés, y de
                     la abreviatura “INF”,
                     la cual procede de INFormation.</p>
 
                 <div class="text-center gap-2">
                     <a href="#" class="mx-1">
-                        <i class="bi bi-discord"></i>
+                        <i class="bi bi-discord socialMedia"></i>
                     </a>
                     <a href="#" class="mx-1">
-                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-instagram socialMedia"></i>
                     </a>
                     <a href="#" class="mx-1">
-                        <i class="bi bi-pinterest"></i>
+                        <i class="bi bi-pinterest socialMedia"></i>
                     </a>
                     <a href="#" class="mx-1">
-                        <i class="bi bi-twitter"></i>
+                        <i class="bi bi-twitter socialMedia"></i>
                     </a>
                     <a href="#" class="mx-1">
-                        <i class="bi bi-youtube"></i>
+                        <i class="bi bi-youtube socialMedia"></i>
                     </a>
                 </div>
 
@@ -193,13 +196,12 @@
 
 
 
-<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-
 
 </body>
 
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 <!--JavaScript-->
 <script src="${pageContext.request.contextPath}/resources/js/form.js"></script>
 

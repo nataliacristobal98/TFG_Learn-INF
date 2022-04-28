@@ -31,35 +31,35 @@
             </a>
 
             <nav class="nav nav-masthead float-md-end text-white">
-                <a href="${mvc.basePath}/mundos/mundo" class="nav-link active d-none d-md-block d-lg-block" aria-current="page">
+                <a  href="${mvc.basePath}/mundos/mundo" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-globe2"></i>
                 </a>
 
-                <a href="${mvc.basePath}/perfil" class="nav-link text-white d-none d-md-block d-lg-block">
+                <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-person-workspace"></i>
                 </a>
 
-                <a href="#" class="nav-link text-white d-none d-md-block d-lg-block">
+                <a href="#" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-trophy"></i>
                 </a>
 
 
-                <a href="${mvc.basePath}/login" type="button" class="boton botonLog mt-2 mx-4 me-2 d-none d-sm-block">Login</a>
-                <a href="${mvc.basePath}/signup" type="button" class="boton botonSign mt-2 d-none d-sm-block">Sign-up</a>
-                <!--<button type="button" class="boton botonSign d-none d-lg-block">Sign-up</button>-->
+                <a href="${mvc.basePath}/login" type="button" class="buttonCustom buttonOrange mt-2 mx-4 me-2 d-none d-sm-block">Login</a>
+                <a href="${mvc.basePath}/signup" type="button" class="buttonCustom buttonMint mt-2 d-none d-sm-block">Sign-up</a>
+                <!--<button type="button" class="buttonCustom buttonMint d-none d-lg-block">Sign-up</button>-->
 
 
 
                 <div class="collapse" id="navbarToggleExternalContent">
                     <div class="p-4">
-                        <a href="${mvc.basePath}/perfil" type="button" class="boton botonRojo">Perfil</a>
-                        <a href="${mvc.basePath}/login" type="button" class="boton botonLog">Login</a>
-                        <a href="${mvc.basePath}/signup" type="button" class="boton botonSign">Sign-up</a>
+                        <button href="${mvc.basePath}/perfil" type="button" class="buttonCustom buttonRed">Perfil</button>
+                        <button href="${mvc.basePath}/login" type="button" class="buttonCustom buttonOrange">Login</button>
+                        <button href="${mvc.basePath}/signup" type="button" class="buttonCustom buttonMint">Sign-up</button>
                     </div>
                 </div>
                 <nav class="navbar navbar-light d-sm-none text-end">
                     <div class="container-fluid">
-                        <button class="navbar-toggler botonMenu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler buttonMenu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </div>
@@ -78,7 +78,7 @@
                 <h1>¡Bienvenido a Learn-INF!</h1>
                 <p class="lead">Esta es la página inicial, para comenzar dale al botón de abajo.</p>
                 <p class="lead">
-                    <a href="${mvc.basePath}/mundos/mundo" class="boton botonLog">Empezar a jugar</a>
+                    <a href="${mvc.basePath}/mundos/mundo" class="buttonCustom buttonOrange ">Empezar a jugar</a>
                 </p>
                 <figure class="figure text-end">
                     <img src="${pageContext.request.contextPath}/resources/img/Cuervo.png" class="figure-img img-fluid rounded w-50" alt="profesor cuervo donde estas?">
@@ -137,19 +137,19 @@
 
                 <div class="text-center gap-2">
                     <a href="#" class="mx-1">
-                        <i class="bi bi-discord"></i>
+                        <i class="bi bi-discord socialMedia"></i>
                     </a>
                     <a href="#" class="mx-1">
-                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-instagram socialMedia"></i>
                     </a>
                     <a href="#" class="mx-1">
-                        <i class="bi bi-pinterest"></i>
+                        <i class="bi bi-pinterest socialMedia"></i>
                     </a>
                     <a href="#" class="mx-1">
-                        <i class="bi bi-twitter"></i>
+                        <i class="bi bi-twitter socialMedia"></i>
                     </a>
                     <a href="#" class="mx-1">
-                        <i class="bi bi-youtube"></i>
+                        <i class="bi bi-youtube socialMedia"></i>
                     </a>
                 </div>
 
@@ -164,7 +164,7 @@
                     <div class="d-flex w-100 gap-1">
                         <label for="newsletter1" class="visually-hidden">Email</label>
                         <input id="newsletter1" type="text" class="form-control" placeholder="Correo electrónico">
-                        <button class="boton botonSign" type="button">Suscribirse</button>
+                        <button class="buttonCustom buttonMint" type="button">Suscribirse</button>
                     </div>
                 </form>
             </div>
@@ -180,7 +180,7 @@
 
 
 
-<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
 </body>

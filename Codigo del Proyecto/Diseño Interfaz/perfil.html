@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>4 - Mundos</title>
+    <title>4 - Perfil</title>
 
     <!-- Bootstrap, JQUERY-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,12 +28,12 @@
                     <img src="img/Logo2.png" alt="" style="width: 250px;">
                 </a>
 
-                <nav class="nav nav-masthead float-md-end">
-                    <a class="nav-link active selectedPlace d-none d-md-block d-lg-block" aria-selected="true" href="#">
+                <nav class="nav nav-masthead float-md-end text-white">
+                    <a class="nav-link d-none d-md-block d-lg-block" href="#">
                         <i class="bi bi-globe2"></i>
                     </a>
 
-                    <a href="#" class="nav-link d-none d-md-block d-lg-block">
+                    <a href="#" class="nav-link active selectedPlace d-none d-md-block d-lg-block">
                         <i class="bi bi-person-workspace"></i>
                     </a>
 
@@ -73,82 +73,53 @@
 
     <main>
 
-        <div class="container">
-            <div class="row m-3 text-center">
-
-                <div class="col-xl-4 col-md-6 col-sm-12">
-                    <div class="card mb-4">
-                        <div class="card-header py-3">
-                            <h3 class="my-0 fw-normal">Mundo 1 - Dificultad 1</h3>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">HTML</h1>
-
-                            <a href="${mvc.basePath}/mundos/mundo/${mundo.id}" type="button"
-                                class="buttonCustom buttonBrown w-75">Jugar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-md-6 col-sm-12">
-                    <div class="card mb-4">
-                        <div class="card-header py-3">
-                            <h3 class="my-0 fw-normal">Mundo 1 - Dificultad 1</h3>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">HTML</h1>
-
-                            <a href="${mvc.basePath}/mundos/mundo/${mundo.id}" type="button"
-                                class="buttonCustom buttonBrown w-75">Jugar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-md-6 col-sm-12">
-                    <div class="card mb-4">
-                        <div class="card-header py-3">
-                            <h3 class="my-0 fw-normal">Mundo 1 - Dificultad 1</h3>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">HTML</h1>
-
-                            <a href="${mvc.basePath}/mundos/mundo/${mundo.id}" type="button"
-                                class="buttonCustom buttonBrown w-75">Jugar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-md-6 col-sm-12">
-                    <div class="card mb-4">
-                        <div class="card-header py-3">
-                            <h3 class="my-0 fw-normal">Mundo 1 - Dificultad 1</h3>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">HTML</h1>
-
-                            <a href="${mvc.basePath}/mundos/mundo/${mundo.id}" type="button"
-                                class="buttonCustom buttonBrown w-75">Jugar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-md-6 col-sm-12">
-                    <div class="card mb-4">
-                        <div class="card-header py-3">
-                            <h3 class="my-0 fw-normal">Mundo 1 - Dificultad 1</h3>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title">HTML</h1>
-
-                            <a href="${mvc.basePath}/mundos/mundo/${mundo.id}" type="button"
-                                class="buttonCustom buttonBrown w-75">Jugar</a>
-                        </div>
-                    </div>
-                </div>
-
+        <section class="container mt-4">
+            <div class="row">
+                <figure class="figure text-center col-xl-5 col-md-8 col-sx-10 mx-auto mb-0">
+                    <!--<img src="img/Login3.png" class="figure-img img-fluid">-->
+                </figure>
             </div>
+        </section>
 
-        </div>
+        <section class="py-5 pt-0 container">
+            <div class="row">
+                <div class="col-xl-6 col-md-11 col-xs-12 mx-auto bgLearn">
+
+                    <section class="container boderProfile">
+
+                                <h3 class="text-black text-center mb-3 mt-3"> Perfil de alumno</h3>
+
+                                <div class="row">
+                                    <div class="col-xl-5 col-md-5 col-sm-12 m-sm-0">
+                                        <figure class="figure">
+                                            <img src="img/icon1.jpg" class="figure-img img-fluid imgProfile mx-3">
+                                        </figure>
+                                    </div>
+    
+                                    <div class="col-xl-7 col-md-7 col-sm-12 px-5">
+                                                <h5>Mi nombre jeje</h5>
+                                                <p class="fw-bold text-black-50 m-0">Código</p>
+                                                <p class="fw-bold text-white m-0">100</p>
+                                                <p class="fw-bold text-black-50 m-0">Puntos</p>
+                                                <p class="fw-bold text-white m-0">100</p>
+                                                <p class="fw-bold text-black-50 m-0">Nivel</p>
+                                                <p class="fw-bold text-white m-0">Intermedio</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="text-center">
+                                        <a type="button" class="buttonCustom buttonMint m-4 mt-xl-0 mt-sm-3">Ir a Mundos</a>
+                                        <a type="button" class="buttonCustom buttonRed m-4 mt-0">Cerrar sesión</a>
+                                    </div>
+                                </div>
+                                
+
+                    </section>
+
+                </div>
+            </div>
+        </section>
 
 
     </main>

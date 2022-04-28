@@ -101,6 +101,10 @@ option {
   color: white;
 }
 
+.buttonBrown:disabled {
+  opacity: 70%;
+}
+
 .buttonMenu {
   background-color: #F5926E;
 }
@@ -131,6 +135,10 @@ option {
   border-bottom-color: #62D8BD;
 }
 
+.selectedPlace > i {
+  color: #62D8BD !important;
+}
+
 .socialMedia {
   color: #F5926E;
   -webkit-transition-duration: 0.4s;
@@ -148,6 +156,24 @@ option {
   background-color: white;
   border-radius: 10px;
   color: #6d4947;
+}
+
+.imgProfile {
+  border-radius: 20px;
+  border: 10px solid #6d4947;
+}
+
+@media (max-width: 390px) {
+  .imgProfile {
+    border-radius: 20px;
+    border: 10px solid #6d4947;
+    width: -webkit-fill-available;
+  }
+}
+
+.boderProfile {
+  border-radius: 20px;
+  border: 10px solid white;
 }
 
 .card {
