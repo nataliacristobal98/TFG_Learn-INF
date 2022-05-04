@@ -91,6 +91,16 @@ option {
   color: white;
 }
 
+.buttonPink {
+  background-color: #FF9DA4;
+  color: white;
+}
+
+.buttonPink:hover {
+  background-color: #ff6c76;
+  color: white;
+}
+
 .buttonBrown {
   background-color: #6d4947;
   color: white;
@@ -111,6 +121,33 @@ option {
 
 .navbar-dark .navbar-toggler {
   color: #e67349;
+}
+
+.bgLearn {
+  background-color: #F5926E;
+  border-radius: 10px;
+  padding: 2em;
+  color: white;
+}
+
+.bgLearn2 {
+  background-color: white;
+  border-radius: 10px;
+  color: #6d4947;
+}
+
+.bgLearn3 {
+  background-color: #e1e1e1 !important;
+  padding: 2em;
+  border-radius: 10px;
+  color: white !important;
+}
+
+.bgLearn4 {
+  background-color: #E54D4D !important;
+  padding: 2em;
+  border-radius: 10px;
+  color: white !important;
 }
 
 .nav-masthead .nav-link {
@@ -145,19 +182,6 @@ option {
   transition-duration: 0.4s;
 }
 
-.bgLearn {
-  background-color: #F5926E;
-  border-radius: 10px;
-  padding: 2em;
-  color: white;
-}
-
-.bgLearn2 {
-  background-color: white;
-  border-radius: 10px;
-  color: #6d4947;
-}
-
 .imgProfile {
   border-radius: 20px;
   border: 10px solid #6d4947;
@@ -178,6 +202,7 @@ option {
 
 .card {
   border: none;
+  background-color: transparent;
 }
 
 .card-header:first-child {
@@ -190,5 +215,9 @@ option {
   background-color: #F5926E;
   color: white;
   border-radius: 0 0 21px 21px;
+}
+
+.textBrown {
+  color: #6d4947;
 }
 /*# sourceMappingURL=custom.css.map */

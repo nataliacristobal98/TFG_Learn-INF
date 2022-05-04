@@ -12,7 +12,7 @@ $yellow: #FFE572;
 $yellowDark: #ffd728;
 $mint: #62D8BD;
 $mintDark: #3c9984;
-$gray: #D4CECE;
+$gray: #e1e1e1;
 $grayDark: #a99a9a;
 
 
@@ -106,6 +106,16 @@ option{
     color: white;
 }
 
+.buttonPink{
+    background-color: $pink;
+    color: white;
+}
+
+.buttonPink:hover{
+    background-color: $pinkDark;
+    color: white;
+}
+
 .buttonBrown{
     background-color: $brown;
     color: white;
@@ -126,6 +136,31 @@ option{
 
 .navbar-dark .navbar-toggler {
     color: $orangeDark;
+}
+
+// Fondos
+.bgLearn{
+    background-color: $orange;
+    border-radius: 10px;
+    padding: 2em;
+    color: white;
+}
+.bgLearn2{
+    background-color: white;
+    border-radius: 10px;
+    color: $brown;
+}
+.bgLearn3{
+    background-color: $gray !important;
+    padding: 2em;
+    border-radius: 10px;
+    color: white !important;
+}
+.bgLearn4{
+    background-color: $red !important;
+    padding: 2em;
+    border-radius: 10px;
+    color: white !important;
 }
 
 
@@ -162,19 +197,6 @@ option{
     transition-duration: 0.4s;
 }
 
-// Login
-.bgLearn{
-    background-color: $orange;
-    border-radius: 10px;
-    padding: 2em;
-    color: white;
-}
-.bgLearn2{
-    background-color: white;
-    border-radius: 10px;
-    color: $brown;
-}
-
 // Perfil
 .imgProfile{
     border-radius: 20px;
@@ -197,6 +219,7 @@ option{
 // Mundos
 .card{
     border: none;
+    background-color: transparent;
 }
 
 .card-header:first-child {
@@ -209,4 +232,8 @@ option{
     background-color: $orange;
     color: white;
     border-radius: 0 0 21px 21px;
+}
+
+.textBrown {
+    color: $brown;
 }

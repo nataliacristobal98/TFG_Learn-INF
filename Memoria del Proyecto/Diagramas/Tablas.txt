@@ -1,0 +1,82 @@
+CREATE TABLE profesor(
+	id INT CONSTRAINT profesor_pk PRIMARY KEY AUTO_INCREMENT,
+	codigo_profesor VARCHAR(1) NOT NULL UNIQUE,
+	nombre VARCHAR(50) NOT NULL,
+	correo VARCHAR(50) NOT NULL,
+	contrasena VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE alumno(
+	id INT CONSTRAINT alumno_pk PRIMARY KEY AUTO_INCREMENT,
+	codigo_alumno VARCHAR(4) NOT NULL,
+	correo VARCHAR(50) NOT NULL,
+	contrasena VARCHAR(10) NOT NULL,
+	icono VARCHAR(300) DEFAULT NULL,
+	nombre VARCHAR(50) NOT NULL,
+	puntos int DEFAULT NULL,
+ 	CONSTRAINT alumno_profesor_id_profesor_fk FOREIGN KEY (id_profesor) 
+        REFERENCES profesor (id_profesor) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE mundo (
+	id INT CONSTRAINT mundo_pk PRIMARY KEY AUTO_INCREMENT,
+	codigo_mundo VARCHAR(2) NOT NULL,
+  	dificultad INT NOT NULL,
+  	puntos_desbloqueo INT NOT NULL,
+  	tematica VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE nivel (
+	id INT CONSTRAINT nivel_pk PRIMARY KEY AUTO_INCREMENT,
+	codigo_nivel VARCHAR(4) NOT NULL,
+  	dificultad INT NOT NULL,
+  	puntos_desbloqueo INT NOT NULL,
+  	puntos_minimos INT NOT NULL,
+CONSTRAINT nivel_recompensa_id_recompensa_fk FOREIGN KEY (id_recompensa) 
+        REFERENCES recompensa (id_recompensa) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT nivel_test_id_test_fk FOREIGN KEY (id_test) 
+        REFERENCES test (id_test) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT nivel_leccion_id_leccion_fk FOREIGN KEY (id_leccion) 
+        REFERENCES leccion (id_leccion) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT nivel_mundo_id_mundo_fk FOREIGN KEY (id_mundo) 
+        REFERENCES mundo (id_mundo) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE recompensa (
+	id INT CONSTRAINT recompensa_pk PRIMARY KEY AUTO_INCREMENT,
+	tipo VARCHAR(30) NOT NULL,
+  	ruta_recompensa VARCHAR(300) NOT NULL,
+  	desbloqueada BOOLEAN NOT NULL
+);
+
+CREATE TABLE leccion (
+	id INT CONSTRAINT leccion_pk PRIMARY KEY AUTO_INCREMENT,
+	codigo_leccion VARCHAR(4) NOT NULL,
+  	contenido1 VARCHAR(500) NOT NULL,
+	contenido2 VARCHAR(500),
+	imagen_leccion VARCHAR(300)
+);
+
+CREATE TABLE test (
+	id INT CONSTRAINT test_pk PRIMARY KEY AUTO_INCREMENT,
+	codigo_test VARCHAR(4) NOT NULL,
+  	terminado BOOLEAN NOT NULL
+);
+
+CREATE TABLE pregunta (
+	id INT CONSTRAINT pregunta_pk PRIMARY KEY AUTO_INCREMENT,
+	codigo_pregunta VARCHAR(6) NOT NULL,
+  	texto_pregunta VARCHAR(100) NOT NULL,
+	imagen_pregunta VARCHAR(300),
+CONSTRAINT pewgunta_test_id_test_fk FOREIGN KEY (id_test) 
+        REFERENCES test (id_test) ON DELETE CASCADE ON UPDATE CASCADE,
+);
+
+CREATE TABLE respuesta (
+	id INT CONSTRAINT test_pk PRIMARY KEY AUTO_INCREMENT,
+	codigo_pregunta VARCHAR(6) NOT NULL,
+  	texto_respuesta VARCHAR(100) NOT NULL,
+	correcta BOOLEAN NOT NULL,
+CONSTRAINT respuesta_pregunta_id_pregunta_fk FOREIGN KEY (id_pregunta) 
+        REFERENCES pregunta (id_test) ON DELETE CASCADE ON UPDATE CASCADE,
+);
