@@ -222,6 +222,14 @@ option{
     background-color: transparent;
 }
 
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    color: white;
+    background-color: rgb(98 216 189);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
 .card-header:first-child {
     background-color: $mint;
     color: white;
@@ -237,3 +245,12 @@ option{
 .textBrown {
     color: $brown;
 }
+
+// Test
+
+.responseTest {
+    background-color: $pink;
+    color: white;
+    border-radius: 21px 21px 0 0;
+}
+

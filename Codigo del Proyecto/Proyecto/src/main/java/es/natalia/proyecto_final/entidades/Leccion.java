@@ -21,6 +21,14 @@ public class Leccion {
     @Column(name = "contenido", nullable = false, length = 300)
     private String contenido;
 
+    @Column(name = "titulo_leccion", length = 30)
+    private String tituloLeccion;
+
+    @Column(name = "contenido1", length = 300)
+    private String contenido1;
+
+    @Column(name = "contenido2", length = 300)
+    private String contenido2;
 
     // Nivel al que pertence la lección
     @OneToOne(mappedBy = "leccion", optional = false, orphanRemoval = true)
