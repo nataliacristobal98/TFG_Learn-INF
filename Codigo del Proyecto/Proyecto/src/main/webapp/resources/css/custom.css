@@ -229,6 +229,22 @@ option {
   color: #6d4947 !important;
 }
 
+.colorRed {
+  color: #E54D4D !important;
+}
+
+.colorRed:hover {
+  color: #c02929 !important;
+}
+
+.colorPink{
+  color: #FF9DA4 !important;
+}
+
+.colorPink:hover{
+  color: #ff6c76 !important;
+}
+
 .responseTest {
   background-color: #F5926E;
   color: white;
