@@ -65,10 +65,10 @@ public class SignupController {
 
     @POST
     @Path("/signup")
-    public String registroHecho(@FormParam(value = "nombre") String nombre, @FormParam(value = "contrasena") String contrasena, @FormParam(value = "icono") String icono, @FormParam(value = "profesor") String profesor) {
+    public String registroHecho(@FormParam(value = "nombre") String nombre, @FormParam(value = "email") String email,  @FormParam(value = "contrasena") String contrasena, @FormParam(value = "icono") String icono, @FormParam(value = "profesor") String profesor) {
         // Creamos al Alumno nuevo en base a los datos mandados
         try {
-            Alumno alumnoNuevo = alumnoService.crearAlumno(profesor, icono, nombre, contrasena);
+            Alumno alumnoNuevo = alumnoService.crearAlumno(profesor, icono, nombre, email, contrasena);
 
             // Iniciamos la sesión
             HttpSession session = request.getSession();

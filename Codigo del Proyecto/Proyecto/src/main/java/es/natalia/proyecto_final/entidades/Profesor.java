@@ -20,6 +20,12 @@ public class Profesor {
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
 
+    @Column(name = "correo", nullable = false, length = 100)
+    private String correo;
+
+    @Column(name = "contrasena", nullable = false, length = 15)
+    private String contrasena;
+
     // Código profesor: Identifica a cada profesor con una letra asignada, ayudará a identificar a sus alumnos (A-B-C...)
     @Column(name = "codigo_profesor", nullable = false, unique = true, length = 1)
     private String codigoProfesor;

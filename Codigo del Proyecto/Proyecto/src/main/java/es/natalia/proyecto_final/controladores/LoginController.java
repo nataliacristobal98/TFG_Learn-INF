@@ -76,6 +76,30 @@ public class LoginController {
             }
         } catch (NoResultException e) {
             System.out.println(e);
+        }
+
+        try {
+            // Comprobamos que el alumno existe, para ello obtenemos el código introducido.
+            Alumno alumno = alumnoService.buscarAlumnoCorreo(codigo);
+
+            if (alumno != null) {
+                // Si el código existe comprobamos la contraseña
+                if (alumno.getContrasena().equals(contrasena)) {
+
+                    // Si ambos parámetros son correctos iniciamos la sesión
+                    HttpSession session = request.getSession();
+                    session.setAttribute("iniciada", true);
+                    session.setAttribute("alumno", alumno.getCodigoAlumno());
+                    session.setAttribute("id", alumno.getId());
+
+                    // Redirect porque es otro controller
+                    return "redirect:mundos/mundo";
+                } else {
+                    return "sesion/login";
+                }
+            }
+        } catch (NoResultException e) {
+            System.out.println(e);
             return "sesion/login";
         }
         return "sesion/login";

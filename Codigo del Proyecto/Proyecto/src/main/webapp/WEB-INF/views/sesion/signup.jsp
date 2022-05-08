@@ -107,11 +107,13 @@
                                     <input class="form-control" id="nombre" name="nombre"
                                            placeholder="Ej: Rosario Martinez Garcia" required>
                                 </div>
+
                                 <div class="text-start">
                                     <p class="mt-3 mb-0 mx-2 fw-bold">Email:</p>
                                     <input class="form-control" id="email" name="email"
                                            placeholder="Ej: miemail@gmail.com" required>
                                 </div>
+
                                 <div class="text-start">
                                     <p class="mt-3 mb-0 mx-2 fw-bold">Icono:</p>
                                     <div class="form-check text-center" id="icono">

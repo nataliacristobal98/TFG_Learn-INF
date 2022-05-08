@@ -27,7 +27,7 @@ public class AlumnoService {
         return alumnoRepository.findBy(id);
     }
 
-    public Alumno crearAlumno(String profesor, String icono, String nombre, String contrasena){
+    public Alumno crearAlumno(String profesor, String icono, String nombre, String email, String contrasena){
         Profesor profesorEncontrado = profesorRepository.findBy(Long.parseLong(profesor));
 
         Random random = new Random();
@@ -57,7 +57,7 @@ public class AlumnoService {
         String cadenaNormalize = Normalizer.normalize(nombre, Normalizer.Form.NFD);
         String cadenaSinAcentos = cadenaNormalize.replaceAll("[^\\p{ASCII}]", "");
 
-        Alumno alumnoNuevo = new Alumno(cadenaSinAcentos, contrasena, icono, codigoAlumnoNuevo, profesorEncontrado);
+        Alumno alumnoNuevo = new Alumno(cadenaSinAcentos, email, contrasena, icono, codigoAlumnoNuevo, profesorEncontrado);
         this.guardar(alumnoNuevo);
 
         return alumnoNuevo;
@@ -84,4 +84,7 @@ public class AlumnoService {
     }
 
     public Alumno buscarAlumno(String codigo){return alumnoRepository.findByCodigoAlumno(codigo);}
+
+    public Alumno buscarAlumnoCorreo(String correo){return alumnoRepository.findByCorreo(correo);}
+
 }

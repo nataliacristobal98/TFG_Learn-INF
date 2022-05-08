@@ -17,8 +17,9 @@ public class Alumno {
     public Alumno() {
 
     }
-    public Alumno(String nombre, String contrasena, String icono, String codigoAlumno, Profesor profesor) {
+    public Alumno(String nombre, String correo, String contrasena, String icono, String codigoAlumno, Profesor profesor) {
         this.nombre = nombre;
+        this.correo = correo;
         this.contrasena = contrasena;
         this.puntos = 0;
         this.icono = icono;
@@ -38,8 +39,11 @@ public class Alumno {
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
 
+    @Column(name = "correo", nullable = false, unique = true, length = 100)
+    private String correo;
+
     // Contraseña: Decidida por cada alumno en su login.
-    @Column(name = "contrasena", nullable = false, length = 10)
+    @Column(name = "contrasena", nullable = false, length = 15)
     private String contrasena;
 
     // Puntuacion: Total de todos los puntos del alumno
