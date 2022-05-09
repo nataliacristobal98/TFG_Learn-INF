@@ -68,6 +68,11 @@ public class AlumnoService {
         this.guardar(alumno);
     }
 
+    public void cambiarIcon(Alumno alumno, String icono){
+        alumno.setIcono(icono);
+        this.guardar(alumno);
+    }
+
     public void guardar(Alumno alumno){
 
         // Comprobar puntos y desbloqueos

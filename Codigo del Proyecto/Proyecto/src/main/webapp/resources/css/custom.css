@@ -101,6 +101,17 @@ option {
   color: white;
 }
 
+.buttonYellow {
+  background-color: #FFE572;
+  margin-left: 30px;
+  color: white;
+}
+
+.buttonYellow:hover {
+  background-color: #ffd728;
+  color: white;
+}
+
 .buttonBrown {
   background-color: #6d4947;
   color: white;
@@ -250,5 +261,15 @@ option {
   color: white;
   border-radius: 21px 21px 0 0;
   padding: 5px 0px 5px 10px;
+}
+
+.modal-body {
+  background-color: #6d4947!important;
+  color: white;
+}
+
+.modal-header{
+  background-color: #F5926E !important;
+  color: white;
 }
 /*# sourceMappingURL=custom.css.map */

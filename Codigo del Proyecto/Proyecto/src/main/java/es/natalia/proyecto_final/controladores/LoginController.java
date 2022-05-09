@@ -69,7 +69,7 @@ public class LoginController {
                     session.setAttribute("id", alumno.getId());
 
                     // Redirect porque es otro controller
-                    return "redirect:mundos/mundo";
+                    return "redirect:perfil";
                 } else {
                     return "sesion/login";
                 }
@@ -93,7 +93,7 @@ public class LoginController {
                     session.setAttribute("id", alumno.getId());
 
                     // Redirect porque es otro controller
-                    return "redirect:mundos/mundo";
+                    return "redirect:perfil";
                 } else {
                     return "sesion/login";
                 }

@@ -11,12 +11,10 @@
     <!--Favicon-->
     <link rel="icon" href="${pageContext.request.contextPath}/resources/img/Logo1.png">
 
-    <!--Bootstrap, JavaScript-->
+    <!--Bootstrap-->
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap-icons/font/bootstrap-icons.css"
           rel="stylesheet">
-    <script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
     <!--CSS-->
     <link href="${pageContext.request.contextPath}/resources/css/custom.css" rel="stylesheet">
@@ -82,7 +80,6 @@
     </div>
 </header>
 <main>
-
     <section class="container mt-4">
         <div class="row">
             <figure class="figure text-center col-xl-5 col-md-8 col-sx-10 mx-auto mb-0">
@@ -101,8 +98,11 @@
 
                     <div class="row">
                         <div class="col-xl-5 col-md-5 col-sm-12 m-sm-0">
-                            <figure class="figure">
+                            <figure class="figure text-center">
                                 <img src="${alumno.icono}" class="figure-img img-fluid imgProfile mx-3">
+                                <button type="button" class="buttonCustom buttonBrown p-2 mb-2 ms-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Cambiar Icono
+                                </button>
                             </figure>
                         </div>
 
@@ -142,6 +142,82 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¡Cambia tu icono!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="${mvc.basePath}/perfil/editar" method="post" class="px-4 py-2">
+                        <div class="form-check text-center" id="icono">
+                            <div class="d-inline-block text-center">
+                                <img src="${pageContext.request.contextPath}/resources/img/icon1.jpg"
+                                     height="100" width="100">
+                                <br><input type="radio" name="icono" value="/proyecto_final/resources/img/icon1.jpg">
+                            </div>
+
+                            <div class="d-inline-block text-center">
+                                <img src="${pageContext.request.contextPath}/resources/img/icon2.jpg"
+                                     height="100" width="100">
+                                <br><input type="radio" name="icono" value="/proyecto_final/resources/img/icon2.jpg">
+                            </div>
+
+                            <div class="d-inline-block text-center">
+                                <img src="${pageContext.request.contextPath}/resources/img/icon3.jpg"
+                                     height="100" width="100">
+                                <br><input type="radio" name="icono" value="/proyecto_final/resources/img/icon3.jpg">
+                            </div>
+
+                            <div class="d-inline-block text-center">
+                                <img src="${pageContext.request.contextPath}/resources/img/icon4.jpg"
+                                     height="100" width="100">
+                                <br><input type="radio" name="icono" value="/proyecto_final/resources/img/icon4.jpg">
+                            </div>
+
+                            <div class="d-inline-block text-center">
+                                <img src="${pageContext.request.contextPath}/resources/img/icon5.jpg"
+                                     height="100" width="100">
+                                <br><input type="radio" name="icono" value="/proyecto_final/resources/img/icon5.jpg">
+                            </div>
+
+                            <div class="d-inline-block text-center">
+                                <img src="${pageContext.request.contextPath}/resources/img/icon6.jpg"
+                                     height="100" width="100">
+                                <br><input type="radio" name="icono" value="/proyecto_final/resources/img/icon6.jpg">
+                            </div>
+
+                            <div class="d-inline-block text-center">
+                                <img src="${pageContext.request.contextPath}/resources/img/icon7.jpg"
+                                     height="100" width="100">
+                                <br><input type="radio" name="icono" value="/proyecto_final/resources/img/icon7.jpg">
+                            </div>
+
+                            <div class="d-inline-block text-center">
+                                <img src="${pageContext.request.contextPath}/resources/img/icon8.jpg"
+                                     height="100" width="100">
+                                <br><input type="radio" name="icono" value="/proyecto_final/resources/img/icon8.jpg">
+                            </div>
+
+                            <div class="d-inline-block text-center">
+                                <img src="${pageContext.request.contextPath}/resources/img/icon9.jpg"
+                                     height="100" width="100">
+                                <br><input type="radio" name="icono" value="/proyecto_final/resources/img/icon9.jpg">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="buttonCustom buttonRed" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="buttonCustom buttonMint">Salvar Cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </main>
@@ -188,14 +264,10 @@
         </div>
     </div>
 </footer>
-
-
-
-<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-
-
 </body>
+
+<!--JavaScript-->
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 
 </html>

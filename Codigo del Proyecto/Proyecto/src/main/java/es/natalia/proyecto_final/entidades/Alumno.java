@@ -31,6 +31,10 @@ public class Alumno {
         this.mundos.add(mundo);
     }
 
+    public void setIcono(String icono) {
+        this.icono = icono;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

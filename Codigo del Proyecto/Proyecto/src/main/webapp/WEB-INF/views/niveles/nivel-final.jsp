@@ -98,10 +98,19 @@
                                             <c:when test="${puntos >= superado}">
                                                 <h3>¡5 puntos!</h3>
                                                 <p>¡Enhorabuena, has superado el test!</p>
+
+                                                <figure class="figure text-center">
+                                                    <img src="${pageContext.request.contextPath}/resources/img/GoodTest.png" class="figure-img img-fluid rounded w-75 mb-0 mt-0" alt="profesor cuervo donde estas?">
+                                                    <!--<figcaption class="figure-caption">Profesor cuervo.</figcaption>-->
+                                                </figure>
                                             </c:when>
                                             <c:otherwise>
                                                 <h4>¡Oh, no!</h4>
                                                 <p>No superaste el test, vuelve a intentarlo</p>
+                                                <figure class="figure text-center">
+                                                    <img src="${pageContext.request.contextPath}/resources/img/BadTest.png" class="figure-img img-fluid rounded w-75 mb-0 mt-0" alt="profesor cuervo donde estas?">
+                                                    <!--<figcaption class="figure-caption">Profesor cuervo.</figcaption>-->
+                                                </figure>
                                             </c:otherwise>
                                         </c:choose>
                                         <div class="text-center my-4">

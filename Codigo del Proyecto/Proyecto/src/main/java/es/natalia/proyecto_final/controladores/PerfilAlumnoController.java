@@ -8,7 +8,9 @@ import jakarta.mvc.Controller;
 import jakarta.mvc.Models;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import lombok.extern.slf4j.Slf4j;
 
@@ -49,6 +51,30 @@ public class PerfilAlumnoController {
         }
 
         return "redirect:login";
+    }
+
+    @POST
+    @Path("/editar")
+    public String editar(@FormParam(value = "icono") String icono){
+        // Comprobamos que la sesión esté activa para así recoger los datos del Alumno y mostrarlos
+        HttpSession session = request.getSession();
+        try {
+            if (session.getAttribute("iniciada").equals(true)) {
+                Long id = Long.parseLong(session.getAttribute("id").toString());
+
+                Alumno alumno = alumnoService.buscarPorId(id);
+                models.put("alumno", alumno);
+
+                // Realizamos el cambio de Icono con el valor que haya elegido el usuario
+                alumnoService.cambiarIcon(alumno,icono);
+                return "usuarios/perfil-alumno";
+            }
+        }catch (NullPointerException e){
+            // Si no hay una sesión, se permite el acceso o crear una.
+            return "redirect:login";
+        }
+
+        return "usuarios/perfil-alumno";
     }
 
     @Path("/desconectar")

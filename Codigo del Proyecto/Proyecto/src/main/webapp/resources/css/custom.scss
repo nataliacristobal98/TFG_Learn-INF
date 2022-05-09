@@ -116,6 +116,17 @@ option{
     color: white;
 }
 
+.buttonYellow{
+    background-color: $yellow;
+    margin-left: 30px;
+    color: white;
+}
+
+.buttonYellow:hover{
+    background-color: $yellowDark;
+    color: white;
+}
+
 .buttonBrown{
     background-color: $brown;
     color: white;
@@ -252,5 +263,15 @@ option{
     background-color: $pink;
     color: white;
     border-radius: 21px 21px 0 0;
+}
+
+.modal-body {
+    background-color: $brown!important;
+    color: white;
+}
+
+.modal-header{
+    background-color: $orange !important;
+    color: white;
 }
 
