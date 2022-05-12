@@ -96,7 +96,7 @@
                                     <div class="text-center bgLearn2 p-3">
                                         <c:choose>
                                             <c:when test="${puntos >= superado}">
-                                                <h3>¡5 puntos!</h3>
+                                                <h3>¡${puntosTest} puntos!</h3>
                                                 <p>¡Enhorabuena, has superado el test!</p>
 
                                                 <figure class="figure text-center">

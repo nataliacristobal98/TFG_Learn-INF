@@ -38,7 +38,8 @@ public class NivelesController {
     @GET
     @Path("{id}")
     public String editar(@PathParam("id") Long id) {
-
+        HttpSession session = request.getSession();
+        Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
         Nivel nivel = nivelService.buscarPorId(id);
 
         Test test = nivelService.buscarTest(nivel);
@@ -46,6 +47,7 @@ public class NivelesController {
 
         models.put("mundo", nivel.getMundo().getId());
         models.put("nivel", nivel);
+        models.put("alumno", alumno);
         models.put("leccion", leccion);
         models.put("test", test);
         return "niveles/nivel-menu";
@@ -54,17 +56,24 @@ public class NivelesController {
     @GET
     @Path("{idN}/{idT}")
     public String editar(@PathParam("idN") Long idN, @PathParam("idT") Long idT) {
-
         Nivel nivel = nivelService.buscarPorId(idN);
 
         // Obtenemos el Test y sus Preguntas y Respuestas asociadas
         Test test = nivelService.buscarPorIdTest(idT);
+
+        // Para saber el test en el que estamos lo guardamos en la sesión, para luego poder terminarlo si se supera el test
+        HttpSession session = request.getSession();
+        Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
+
+        session.setAttribute("testActual", idT);
+
         List<Pregunta> preguntas = nivelService.buscarPreguntas(test);
 
         List<Respuesta> respuestas = nivelService.buscarRespuestas();
 
         models.put("nivel", nivel);
         models.put("test", test);
+        models.put("alumno", alumno);
         models.put("preguntas", preguntas);
         models.put("totalPreguntas", preguntas.size());
         models.put("respuestas", respuestas);
@@ -92,9 +101,12 @@ public class NivelesController {
             }
         }
 
-        if(puntos>=5){
+        if(puntos>=3){
             alumnoService.guardarPuntos(puntos, alumno);
+            Test test = nivelService.buscarPorIdTest(Long.parseLong(session.getAttribute("testActual").toString()));
+            //nivelService.terminarTest(test);
             session.setAttribute("puntosGanados", alumno.getPuntos());
+            session.setAttribute("puntosTest", puntos);
         }else{
             session.setAttribute("puntosGanados", 0);
         }
@@ -109,7 +121,8 @@ public class NivelesController {
         //System.out.println("ok, test superado");
         HttpSession session = request.getSession();
 
-        models.put("superado", 5);
+        models.put("superado", 3);
+        models.put("puntosTest", session.getAttribute("puntosTest").toString());
         models.put("puntos", Integer.parseInt(session.getAttribute("puntosGanados").toString()));
         return "niveles/nivel-final";
     }

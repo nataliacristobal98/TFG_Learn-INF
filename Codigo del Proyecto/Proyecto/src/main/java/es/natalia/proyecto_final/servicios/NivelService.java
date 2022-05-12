@@ -45,6 +45,12 @@ public class NivelService {
     public Leccion buscarLeccion(Nivel nivel) {return leccionRepository.findByNivel(nivel);}
     public Test buscarTest(Nivel nivel) {return testRepository.findByNivel(nivel);}
 
+    //Terminar Test
+    public void terminarTest(Test test){
+        test.setTerminadoTrue();
+        testRepository.save(test);
+    }
+
 
     public Test buscarPorIdTest(Long id) {
         return testRepository.findBy(id);

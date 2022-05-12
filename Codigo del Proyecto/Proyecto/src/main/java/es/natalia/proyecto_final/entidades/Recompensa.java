@@ -22,8 +22,9 @@ public class Recompensa {
     @Column(name = "ruta_recompensa", nullable = false, length = 300)
     private String rutaRecompensa;
 
-    @Column(name = "desbloqueada", nullable = false)
-    private Boolean desbloqueada = false;
+    // Puntos necesarios que tiene que tener el usuario para desbloquear la insignia
+    @Column(name = "puntos_desbloqueo", nullable = false)
+    private Integer puntosDesbloqueo;
 
 
     // Nivel al que pertenece la recompensa

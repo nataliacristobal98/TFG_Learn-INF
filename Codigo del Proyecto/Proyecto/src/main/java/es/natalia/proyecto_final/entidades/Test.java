@@ -14,6 +14,19 @@ import java.util.Set;
 
 // La entidad TEST recoge las preguntas y respuesta que hay por nivel
 public class Test {
+
+    // Constructores, uno vacío y otro para cambiar el estado del Test
+    public Test() {
+
+    }
+
+    public Boolean getTerminado() {
+        return terminado;
+    }
+    public void setTerminadoTrue() {
+        this.terminado = true;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

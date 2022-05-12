@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>8 - Test</title>
+    <title>Recompensas</title>
     <!--Favicon-->
     <link rel="icon" href="${pageContext.request.contextPath}/resources/img/Logo1.png">
 
@@ -24,6 +24,9 @@
 
 <body class="d-flex flex-column h-100">
 
+<body class="d-flex flex-column h-100">
+
+
 <header>
     <div class="navbar navbar-dark shadow-sm">
         <div class="container">
@@ -33,7 +36,8 @@
             </a>
 
             <nav class="nav nav-masthead float-md-end text-white">
-                <a href="${mvc.basePath}/mundos/mundo" class="nav-link d-none d-md-block d-lg-block">
+                <a href="${mvc.basePath}/mundos/mundo"
+                   class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-globe2"></i>
                 </a>
 
@@ -41,7 +45,7 @@
                     <i class="bi bi-person-workspace"></i>
                 </a>
 
-                <a href="#" class="nav-link d-none d-md-block d-lg-block">
+                <a href="#" class="nav-link active selectedPlace d-none d-md-block d-lg-block">
                     <i class="bi bi-trophy"></i>
                 </a>
 
@@ -92,40 +96,33 @@
 
     <section class="py-5 pt-0 container">
         <div class="row">
-            <div class="col-xl-12 col-md-11 col-xs-12 mx-auto bgLearn3">
+            <div class="col-xl-12 col-md-11 col-xs-12 mx-auto bgLearn">
 
                 <section class="container">
                     <div class="row">
-                        <div class="col-xl-12 col-md-11 col-sx-11mb-3 p-5 bgLearn2 text-center">
-                            <h2>${leccion.tituloLeccion}</h2>
+                        <div class="col-xl-12 col-md-11 col-sx-11 mx-auto mb-3 py-2 bgLearn2">
 
-                            <p class="text-start fs-5">
-                                ${leccion.contenido1}
-                            </p>
+                            <div class="row">
 
-                            <figure class="figure text-center col-xl-5 col-md-8 col-sx-10 mx-auto mb-0">
-                                <img src="${leccion.imagenLeccion}" class="figure-img img-fluid">
-                            </figure>
-
-                            <p class="text-start fs-5">
-                                ${leccion.contenido2}
-                            </p>
-
-                            <div>
-                                <a href="${mvc.basePath}/mundos/mundo/${mundo}"><i class="bi bi-arrow-left-circle-fill colorRed"></i></a>
-                                <span class="lead text-end">
+                                <c:forEach var="recompensas" items="${recompensas}">
 
                                     <c:choose>
-                                        <c:when test="${alumno.puntos <= nivel.puntosDesbloqueo || alumno.puntos == 0}">
-                                            <a href="${mvc.basePath}/niveles/nivel/${nivel.id}/${test.id}"><i class="bi bi-arrow-right-circle-fill colorPink"></i></a>
+                                        <c:when test="${alumno.puntos >= recompensas.puntosDesbloqueo}">
+                                            <figure class="figure col-xl-4 col-md-8 col-sx-10 mx-auto">
+                                                <img src="${recompensas.rutaRecompensa}" class="figure-img img-fluid">
+                                            </figure>
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="${mvc.basePath}/niveles/nivel/${nivel.id}/${test.id}" style="pointer-events: none; opacity: 70%"><i class="bi bi-arrow-right-circle-fill colorPink"></i></a>
-                                            <p>Ya superaste el test, ¡enhorabuena!</p>
+                                            <figure class="figure col-xl-4 col-md-8 col-sx-10 mx-auto">
+                                                <img src="${recompensas.rutaRecompensa}" class="figure-img img-fluid" style="opacity: 30%">
+                                            </figure>
                                         </c:otherwise>
                                     </c:choose>
-                                </span>
+
+                                </c:forEach>
+
                             </div>
+
 
 
                         </div>
