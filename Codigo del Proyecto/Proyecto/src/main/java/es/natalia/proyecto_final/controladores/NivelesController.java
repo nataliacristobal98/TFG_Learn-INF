@@ -50,7 +50,7 @@ public class NivelesController {
         models.put("alumno", alumno);
         models.put("leccion", leccion);
         models.put("test", test);
-        return "niveles/nivel-menu";
+        return "niveles/nivel-leccion";
     }
 
     @GET
@@ -100,10 +100,9 @@ public class NivelesController {
                 puntos++;
             }
         }
-
+        Test test = nivelService.buscarPorIdTest(Long.parseLong(session.getAttribute("testActual").toString()));
         if(puntos>=3){
             alumnoService.guardarPuntos(puntos, alumno);
-            Test test = nivelService.buscarPorIdTest(Long.parseLong(session.getAttribute("testActual").toString()));
             //nivelService.terminarTest(test);
             session.setAttribute("puntosGanados", alumno.getPuntos());
             session.setAttribute("puntosTest", puntos);
@@ -122,7 +121,7 @@ public class NivelesController {
         HttpSession session = request.getSession();
 
         models.put("superado", 3);
-        models.put("puntosTest", session.getAttribute("puntosTest").toString());
+        models.put("puntosTest", session.getAttribute("puntosTest"));
         models.put("puntos", Integer.parseInt(session.getAttribute("puntosGanados").toString()));
         return "niveles/nivel-final";
     }

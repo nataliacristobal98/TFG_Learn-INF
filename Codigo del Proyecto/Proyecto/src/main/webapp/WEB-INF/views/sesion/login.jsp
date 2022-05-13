@@ -41,7 +41,7 @@
                     <i class="bi bi-person-workspace"></i>
                 </a>
 
-                <a href="#" class="nav-link d-none d-md-block d-lg-block">
+                <a href="${mvc.basePath}/recompensa" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-trophy"></i>
                 </a>
 

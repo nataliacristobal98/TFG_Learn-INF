@@ -33,7 +33,7 @@
             </a>
 
             <nav class="nav nav-masthead float-md-end text-white">
-                <a href="${mvc.basePath}/mundos/mundo" class="nav-link d-none d-md-block d-lg-block">
+                <a href="${mvc.basePath}/mundos/mundo" class="nav-link active selectedPlace d-none d-md-block d-lg-block">
                     <i class="bi bi-globe2"></i>
                 </a>
 
@@ -41,7 +41,7 @@
                     <i class="bi bi-person-workspace"></i>
                 </a>
 
-                <a href="#" class="nav-link d-none d-md-block d-lg-block">
+                <a href="${mvc.basePath}/recompensa" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-trophy"></i>
                 </a>
 
@@ -116,7 +116,7 @@
                                 <span class="lead text-end">
 
                                     <c:choose>
-                                        <c:when test="${alumno.puntos <= nivel.puntosDesbloqueo || alumno.puntos == 0}">
+                                        <c:when test="${alumno.puntos <= nivel.puntosDesbloqueo}">
                                             <a href="${mvc.basePath}/niveles/nivel/${nivel.id}/${test.id}"><i class="bi bi-arrow-right-circle-fill colorPink"></i></a>
                                         </c:when>
                                         <c:otherwise>
