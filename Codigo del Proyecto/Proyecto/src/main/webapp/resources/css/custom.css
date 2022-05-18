@@ -272,4 +272,18 @@ option {
   background-color: #F5926E !important;
   color: white;
 }
+
+.bgPrizes{
+  background-color: #6d4947;
+  border-radius: 10px;
+  padding: 2em;
+  color: white;
+}
+
+input:invalid {
+  border: 2px solid #F5926E;
+}
+input:valid {
+  border: 2px solid #62D8BD;
+}
 /*# sourceMappingURL=custom.css.map */

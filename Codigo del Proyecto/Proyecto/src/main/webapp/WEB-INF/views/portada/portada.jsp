@@ -97,9 +97,9 @@
 
         <div class="row text-center">
             <div class="col">
-                <figure class="figure">
-                    <img src="${pageContext.request.contextPath}/resources/img/Logo1.png" class="figure-img img-fluid rounded w-25" alt="profesor cuervo donde estas?">
-                </figure>
+                <!--<figure class="figure">
+                    <img src="${pageContext.request.contextPath}/resources/img/Logo1.png" class="figure-img img-fluid rounded" alt="profesor cuervo donde estas?">
+                </figure>-->
             </div>
         </div>
 

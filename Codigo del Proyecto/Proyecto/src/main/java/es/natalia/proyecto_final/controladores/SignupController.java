@@ -68,6 +68,11 @@ public class SignupController {
     public String registroHecho(@FormParam(value = "nombre") String nombre, @FormParam(value = "email") String email,  @FormParam(value = "contrasena") String contrasena, @FormParam(value = "icono") String icono, @FormParam(value = "profesor") String profesor) {
         // Creamos al Alumno nuevo en base a los datos mandados
         try {
+
+            if(icono == null){
+                icono = "icono1";
+            }
+
             Alumno alumnoNuevo = alumnoService.crearAlumno(profesor, icono, nombre, email, contrasena);
 
             // Iniciamos la sesión

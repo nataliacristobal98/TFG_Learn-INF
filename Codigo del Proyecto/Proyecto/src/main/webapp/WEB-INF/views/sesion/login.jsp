@@ -123,7 +123,9 @@
 
 
                                 <div class="checkbox mb-3 text-center">
-                                    <label><input type="checkbox" value="remember-me"> Remember me</label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="remember-me" id="remember_me"> Remember me
+                                    </label>
                                 </div>
 
                                 <div class="text-center">
@@ -194,15 +196,38 @@
     </div>
 </footer>
 
-
-
-
 </body>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+    $(function() {
 
+        if (localStorage.chkbx && localStorage.chkbx != '') {
+            $('#remember_me').attr('checked', 'checked');
+            $('#codigo').val(localStorage.usrname);
+        } else {
+            $('#remember_me').removeAttr('checked');
+            $('#codigo').val('');
+        }
+
+        $('#remember_me').click(function() {
+
+            if ($('#remember_me').is(':checked')) {
+                // save username and password
+                localStorage.usrname = $('#codigo').val();
+                localStorage.chkbx = $('#remember_me').val();
+            } else {
+                localStorage.usrname = '';
+                localStorage.chkbx = '';
+            }
+        });
+    });
+
+</script>
+
+<!--JavaScript-->
+<script src="${pageContext.request.contextPath}/resources/js/form.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-<!--JavaScript-->
-<script src="${pageContext.request.contextPath}/resources/js/form.js"></script>
 
 </html>

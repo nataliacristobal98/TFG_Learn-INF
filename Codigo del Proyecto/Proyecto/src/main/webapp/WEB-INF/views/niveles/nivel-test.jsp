@@ -85,7 +85,7 @@
     <section class="container mt-4">
         <div class="row">
             <figure class="figure text-center col-xl-5 col-md-8 col-sx-10 mx-auto mb-0">
-                <img src="img/Login3.png" class="figure-img img-fluid">
+                <img src="${pageContext.request.contextPath}/resources/img/Test.png" class="figure-img img-fluid w-50">
             </figure>
         </div>
     </section>

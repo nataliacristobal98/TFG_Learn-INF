@@ -101,7 +101,7 @@ public class NivelesController {
             }
         }
         Test test = nivelService.buscarPorIdTest(Long.parseLong(session.getAttribute("testActual").toString()));
-        if(puntos>=3){
+        if(puntos>=5){
             alumnoService.guardarPuntos(puntos, alumno);
             //nivelService.terminarTest(test);
             session.setAttribute("puntosGanados", alumno.getPuntos());

@@ -102,20 +102,10 @@
                         <div class="col-xl-11 col-md-11 col-sx-11 mx-auto mb-3 py-2 bgLearn2">
 
                             <form action="${mvc.basePath}/signup/signup" method="post" class="px-4 py-2">
-                                <div class="text-start">
-                                    <p class="mt-1 mb-0 mx-2 fw-bold">Nombre y apellidos:</p>
-                                    <input class="form-control" id="nombre" name="nombre"
-                                           placeholder="Ej: Rosario Martinez Garcia" required>
-                                </div>
-
-                                <div class="text-start">
-                                    <p class="mt-3 mb-0 mx-2 fw-bold">Email:</p>
-                                    <input class="form-control" id="email" name="email"
-                                           placeholder="Ej: miemail@gmail.com" required>
-                                </div>
 
                                 <div class="text-start">
                                     <p class="mt-3 mb-0 mx-2 fw-bold">Icono:</p>
+
                                     <div class="form-check text-center" id="icono">
                                         <div class="d-inline-block text-center">
                                             <img src="${pageContext.request.contextPath}/resources/img/icon1.jpg"
@@ -176,6 +166,18 @@
                                 </div>
 
                                 <div class="text-start">
+                                    <p class="mt-1 mb-0 mx-2 fw-bold">Nombre y apellidos:</p>
+                                    <input class="form-control" id="nombre" name="nombre"
+                                           placeholder="Ej: Rosario Martinez Garcia" required>
+                                </div>
+
+                                <div class="text-start">
+                                    <p class="mt-3 mb-0 mx-2 fw-bold">Email:</p>
+                                    <input class="form-control" id="email" name="email"
+                                           placeholder="Ej: miemail@gmail.com" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
+                                </div>
+
+                                <div class="text-start">
                                     <p class="mt-3 mb-0 mx-2 fw-bold">Contraseña:</p>
                                     <div class="input-group">
                                         <input id="txtPassword" name="contrasena" type="password"
@@ -189,11 +191,10 @@
                                     </div>
                                 </div>
 
-
                                 <div class="text-start mb-5">
                                     <p class="mt-3 mb-0 mx-2 fw-bold">Profesor asignado:</p>
                                     <select class="form-select" id="profesor" name="profesor" required>
-                                        <option selected disabled>Selecciona un profesor</option>
+                                        <option selected disabled value="">Selecciona un profesor</option>
                                         <c:forEach var="profesor" items="${profesores}">
                                             <option value="${profesor.id}">${profesor.nombre}</option>
                                         </c:forEach>
@@ -270,16 +271,10 @@
     </div>
 </footer>
 
-
-
-<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-
-
 </body>
 
 <!--JavaScript-->
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/form.js"></script>
 
 </html>

@@ -89,18 +89,18 @@
     <section class="container mt-4">
         <div class="row">
             <figure class="figure text-center col-xl-5 col-md-8 col-sx-10 mx-auto mb-0">
-                <img src="img/Login3.png" class="figure-img img-fluid">
+                <img src="${pageContext.request.contextPath}/resources/img/Premios.png" class="figure-img img-fluid w-75">
             </figure>
         </div>
     </section>
 
     <section class="py-5 pt-0 container">
         <div class="row">
-            <div class="col-xl-12 col-md-11 col-xs-12 mx-auto bgLearn">
+            <div class="col-xl-12 col-md-11 col-xs-12 mx-auto bgPrizes">
 
                 <section class="container">
                     <div class="row">
-                        <div class="col-xl-12 col-md-11 col-sx-11 mx-auto mb-3 py-2 bgLearn2">
+                        <div class="col-xl-12 col-md-11 col-sx-11 mx-auto mb-3 p-2">
 
                             <div class="row">
 
@@ -109,7 +109,7 @@
                                     <c:choose>
                                         <c:when test="${alumno.puntos >= recompensas.puntosDesbloqueo}">
                                             <figure class="figure col-xl-4 col-md-8 col-sx-10 mx-auto">
-                                                <img src="${recompensas.rutaRecompensa}" class="figure-img img-fluid">
+                                                <img src="${recompensas.rutaRecompensa}" title="${recompensas.tipo}" class="figure-img img-fluid">
                                             </figure>
                                         </c:when>
                                         <c:otherwise>
