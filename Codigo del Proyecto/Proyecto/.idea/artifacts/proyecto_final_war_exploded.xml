@@ -16,8 +16,6 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: jakarta.mvc:jakarta.mvc-api:2.0.0" />
-          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.4.1.Final" />
-          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.5.1" />
           <element id="library" level="project" name="Maven: org.eclipse.krazo:krazo-core:2.0.1" />
           <element id="library" level="project" name="Maven: org.apache.deltaspike.core:deltaspike-core-api:1.9.4" />
           <element id="library" level="project" name="Maven: org.apache.deltaspike.core:deltaspike-core-impl:1.9.4" />
@@ -30,10 +28,6 @@
           <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-proxy-module-impl-asm:1.9.4" />
           <element id="library" level="project" name="Maven: org.apache.deltaspike.modules:deltaspike-jpa-module-impl:1.9.4" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.0" />
-          <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:7.0.4.Final" />
-          <element id="library" level="project" name="Maven: jakarta.validation:jakarta.validation-api:3.0.0" />
-          <element id="library" level="project" name="Maven: org.glassfish:jakarta.el:4.0.1" />
-          <element id="library" level="project" name="Maven: jakarta.el:jakarta.el-api:4.0.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -3,6 +3,7 @@ package es.natalia.proyecto_final.controladores;
 import es.natalia.proyecto_final.entidades.*;
 import es.natalia.proyecto_final.servicios.AlumnoService;
 import es.natalia.proyecto_final.servicios.NivelService;
+import es.natalia.proyecto_final.servicios.ProfesorService;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.mvc.Controller;
@@ -29,6 +30,8 @@ public class NivelesController {
     @Inject
     AlumnoService alumnoService;
 
+    @Inject
+    ProfesorService profesorService;
 
     @Inject
     NivelService nivelService;
@@ -44,6 +47,11 @@ public class NivelesController {
 
         Test test = nivelService.buscarTest(nivel);
         Leccion leccion = nivelService.buscarLeccion(nivel);
+
+        /*
+        Profesor profesor = profesorService.buscarPorId(Long.parseLong(session.getAttribute("idP").toString()));
+        models.put("profesor", profesor);
+        */
 
         models.put("mundo", nivel.getMundo().getId());
         models.put("nivel", nivel);

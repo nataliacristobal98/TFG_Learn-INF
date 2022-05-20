@@ -175,7 +175,16 @@
                                     <p class="mt-3 mb-0 mx-2 fw-bold">Email:</p>
                                     <input class="form-control" id="email" name="email"
                                            placeholder="Ej: miemail@gmail.com" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
+
+                                    <c:choose>
+                                    <c:when test="${mensajeError == true}">
+                                        <div class="text-danger fw-bolder">
+                                            <p>Uy, parece que este correo ya ha sido usado...</p>
+                                        </div>
+                                    </c:when>
+                                </c:choose>
                                 </div>
+
 
                                 <div class="text-start">
                                     <p class="mt-3 mb-0 mx-2 fw-bold">Contraseña:</p>

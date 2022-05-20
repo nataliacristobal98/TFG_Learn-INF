@@ -23,6 +23,10 @@ public class AlumnoService {
     @Inject
     ProfesorRepository profesorRepository;
 
+    public List<Alumno> findAll() {
+        return alumnoRepository.findAll();
+    }
+
     public Alumno buscarPorId(Long id) {
         return alumnoRepository.findBy(id);
     }

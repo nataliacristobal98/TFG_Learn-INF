@@ -67,6 +67,20 @@ public class SignupController {
     @Path("/signup")
     public String registroHecho(@FormParam(value = "nombre") String nombre, @FormParam(value = "email") String email,  @FormParam(value = "contrasena") String contrasena, @FormParam(value = "icono") String icono, @FormParam(value = "profesor") String profesor) {
         // Creamos al Alumno nuevo en base a los datos mandados
+        boolean error = false;
+        List<Alumno> alumnos = alumnoService.findAll();
+        for (Alumno a:alumnos) {
+            if(a.getCorreo().equals(email)){
+                error = true;
+
+                // Hay que volver a mandar los profesores para la cargarlos en el select
+                List<Profesor> profesores = profesorService.findAll();
+                models.put("profesores", profesores);
+                models.put("mensajeError", error);
+                return "sesion/signup";
+            }
+        }
+
         try {
 
             if(icono == null){

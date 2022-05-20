@@ -119,12 +119,21 @@
                                                                 style="font-size: larger;"></i></button>
                                                     </span>
                                     </div>
+
+                                    <c:choose>
+                                        <c:when test="${mensajeError == true}">
+                                            <div class="text-danger text-center fw-bolder">
+                                                <p>Uy, hay algo que no está bien...</p>
+                                            </div>
+                                        </c:when>
+                                    </c:choose>
                                 </div>
 
 
                                 <div class="checkbox mb-3 text-center">
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="remember-me" id="remember_me"> Remember me
+                                    <label class="checkmark">
+                                        <input type="checkbox" value="remember-me" id="remember_me" style="background-color: #0c4128"> Remember me
+                                        <span class="checkmark"></span>
                                     </label>
                                 </div>
 

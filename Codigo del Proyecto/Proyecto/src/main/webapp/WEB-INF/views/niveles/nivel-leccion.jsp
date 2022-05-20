@@ -119,6 +119,7 @@
                                         <c:when test="${alumno.puntos <= nivel.puntosDesbloqueo}">
                                             <a href="${mvc.basePath}/niveles/nivel/${nivel.id}/${test.id}"><i class="bi bi-arrow-right-circle-fill colorPink"></i></a>
                                         </c:when>
+
                                         <c:otherwise>
                                             <a href="${mvc.basePath}/niveles/nivel/${nivel.id}/${test.id}" style="pointer-events: none; opacity: 70%"><i class="bi bi-arrow-right-circle-fill colorPink"></i></a>
                                             <p>Ya superaste el test, ¡enhorabuena!</p>
