@@ -49,7 +49,15 @@ public class LoginController {
             }
         } catch (NullPointerException e) {
             // Si no hay una sesión, se permite el acceso o crear una.
-            return "sesion/login";
+            System.out.println(e);
+        }
+        try {
+            if (session.getAttribute("iniciadaP").equals(true) ) {
+                // Redirección a la pantalla principal
+                return "redirect:portada";
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
         }
         return "sesion/login";
     }
@@ -121,8 +129,9 @@ public class LoginController {
 
                     // Si ambos parámetros son correctos iniciamos la sesión
                     HttpSession session = request.getSession();
-                    session.setAttribute("iniciada", true);
+                    session.setAttribute("iniciadaP", true);
                     session.setAttribute("idP", profesor.getId());
+                    session.setAttribute("codP", profesor.getCodigoProfesor());
 
                     // Redirect porque es otro controller
                     return "redirect:profesor";

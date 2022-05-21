@@ -52,13 +52,21 @@ public class SignupController {
         // Controlamos que haya una sesión activa. Si la hay, no se puede acceder a esta pantalla ya que causará errores.
         HttpSession session = request.getSession();
         try {
-            if (session.getAttribute("iniciada").equals(true)) {
+            if (session.getAttribute("iniciada").equals(true) ) {
                 // Redirección a la pantalla principal
                 return "redirect:portada";
             }
         } catch (NullPointerException e) {
-            // Si no hay una sesión, se permite el acceso o crear una.
-            return "sesion/signup";
+            System.out.println(e);
+        }
+
+        try {
+            if (session.getAttribute("iniciadaP").equals(true) ) {
+                // Redirección a la pantalla principal
+                return "redirect:portada";
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
         }
         return "sesion/signup";
     }

@@ -41,9 +41,23 @@
                     <i class="bi bi-globe2"></i>
                 </a>
 
-                <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
-                    <i class="bi bi-person-workspace"></i>
-                </a>
+                <c:choose>
+                    <c:when test="${alumno != null}">
+                        <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:when>
+                    <c:when test="${profesor != null}">
+                        <a href="${mvc.basePath}/profesor" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:otherwise>
+                </c:choose>
 
                 <a href="${mvc.basePath}/recompensa" class="nav-link active selectedPlace d-none d-md-block d-lg-block">
                     <i class="bi bi-trophy"></i>
@@ -108,6 +122,11 @@
 
                                     <c:choose>
                                         <c:when test="${alumno.puntos >= recompensas.puntosDesbloqueo}">
+                                            <figure class="figure col-xl-4 col-md-8 col-sx-10 mx-auto">
+                                                <img src="${recompensas.rutaRecompensa}" title="${recompensas.tipo}" class="figure-img img-fluid">
+                                            </figure>
+                                        </c:when>
+                                        <c:when test="${profesor != null}">
                                             <figure class="figure col-xl-4 col-md-8 col-sx-10 mx-auto">
                                                 <img src="${recompensas.rutaRecompensa}" title="${recompensas.tipo}" class="figure-img img-fluid">
                                             </figure>

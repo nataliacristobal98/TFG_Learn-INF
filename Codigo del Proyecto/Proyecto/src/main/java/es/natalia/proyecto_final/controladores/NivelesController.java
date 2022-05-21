@@ -42,23 +42,47 @@ public class NivelesController {
     @Path("{id}")
     public String editar(@PathParam("id") Long id) {
         HttpSession session = request.getSession();
-        Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
         Nivel nivel = nivelService.buscarPorId(id);
-
         Test test = nivelService.buscarTest(nivel);
         Leccion leccion = nivelService.buscarLeccion(nivel);
 
-        /*
-        Profesor profesor = profesorService.buscarPorId(Long.parseLong(session.getAttribute("idP").toString()));
-        models.put("profesor", profesor);
-        */
+        // Si la sesión de alumno
+        try {
+            if (session.getAttribute("iniciada").equals(true)) {
+                Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
 
-        models.put("mundo", nivel.getMundo().getId());
-        models.put("nivel", nivel);
-        models.put("alumno", alumno);
-        models.put("leccion", leccion);
-        models.put("test", test);
-        return "niveles/nivel-leccion";
+                models.put("mundo", nivel.getMundo().getId());
+                models.put("nivel", nivel);
+                models.put("alumno", alumno);
+                models.put("leccion", leccion);
+                models.put("test", test);
+                return "niveles/nivel-leccion";
+
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+
+        // Si la sesión es de profesor
+        try {
+            if(session.getAttribute("iniciadaP").equals(true)) {
+                // Obtenemos el profesor
+                Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
+
+                models.put("mundo", nivel.getMundo().getId());
+                models.put("nivel", nivel);
+                models.put("profesor", profesor);
+                models.put("leccion", leccion);
+                models.put("test", test);
+                return "niveles/nivel-leccion";
+            }
+
+        } catch (NullPointerException e) {
+            // Si no hay una sesión, se permite el acceso o crear una.
+            return "sesion/login";
+        }
+
+        return "sesion/login";
     }
 
     @GET
@@ -71,21 +95,50 @@ public class NivelesController {
 
         // Para saber el test en el que estamos lo guardamos en la sesión, para luego poder terminarlo si se supera el test
         HttpSession session = request.getSession();
-        Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
-
         session.setAttribute("testActual", idT);
-
         List<Pregunta> preguntas = nivelService.buscarPreguntas(test);
-
         List<Respuesta> respuestas = nivelService.buscarRespuestas();
 
-        models.put("nivel", nivel);
-        models.put("test", test);
-        models.put("alumno", alumno);
-        models.put("preguntas", preguntas);
-        models.put("totalPreguntas", preguntas.size());
-        models.put("respuestas", respuestas);
-        return "niveles/nivel-test";
+        // Si la sesión de alumno
+        try {
+            if (session.getAttribute("iniciada").equals(true)) {
+                Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
+
+                models.put("nivel", nivel);
+                models.put("test", test);
+                models.put("alumno", alumno);
+                models.put("preguntas", preguntas);
+                models.put("totalPreguntas", preguntas.size());
+                models.put("respuestas", respuestas);
+                return "niveles/nivel-test";
+
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+
+        // Si la sesión es de profesor
+        try {
+            if(session.getAttribute("iniciadaP").equals(true)) {
+                // Obtenemos el profesor
+                Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
+
+                models.put("nivel", nivel);
+                models.put("test", test);
+                models.put("profesor", profesor);
+                models.put("preguntas", preguntas);
+                models.put("totalPreguntas", preguntas.size());
+                models.put("respuestas", respuestas);
+                return "niveles/nivel-test";
+            }
+
+        } catch (NullPointerException e) {
+            // Si no hay una sesión, se permite el acceso o crear una.
+            return "sesion/login";
+        }
+
+        return "sesion/login";
+
     }
 
     @POST

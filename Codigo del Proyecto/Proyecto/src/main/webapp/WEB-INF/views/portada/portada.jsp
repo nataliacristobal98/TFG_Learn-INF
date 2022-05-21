@@ -35,9 +35,23 @@
                     <i class="bi bi-globe2"></i>
                 </a>
 
-                <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
-                    <i class="bi bi-person-workspace"></i>
-                </a>
+                <c:choose>
+                    <c:when test="${alumno != null}">
+                        <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:when>
+                    <c:when test="${profesor != null}">
+                        <a href="${mvc.basePath}/profesor" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:otherwise>
+                </c:choose>
 
                 <a href="${mvc.basePath}/recompensa" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-trophy"></i>

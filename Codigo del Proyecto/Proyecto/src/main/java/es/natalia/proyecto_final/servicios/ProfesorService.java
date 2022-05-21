@@ -30,6 +30,8 @@ public class ProfesorService {
 
     public Profesor buscarProfesorCorreo(String correo){return profesorRepository.findByCorreo(correo);}
 
+    public Profesor buscarProfesorCod(String cod){return profesorRepository.findByCodigoProfesor(cod);}
+
     public List<Alumno> listadoAlumnos(Profesor profesor) {
         Long id = profesor.getId();
 

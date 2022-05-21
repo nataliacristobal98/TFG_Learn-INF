@@ -44,7 +44,7 @@ public class PerfilProfesorController {
         // Comprobamos que la sesión esté activa para así recoger los datos del Alumno y mostrarlos
         HttpSession session = request.getSession();
         try {
-            if (session.getAttribute("iniciada").equals(true)) {
+            if (session.getAttribute("iniciadaP").equals(true)) {
                 Long id = Long.parseLong(session.getAttribute("idP").toString());
 
                 Profesor profesor = profesorService.buscarPorId(id);

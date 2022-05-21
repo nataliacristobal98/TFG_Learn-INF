@@ -4,6 +4,7 @@ import es.natalia.proyecto_final.entidades.*;
 import es.natalia.proyecto_final.servicios.AlumnoService;
 import es.natalia.proyecto_final.servicios.MundoService;
 import es.natalia.proyecto_final.servicios.NivelService;
+import es.natalia.proyecto_final.servicios.ProfesorService;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.mvc.Controller;
@@ -37,6 +38,9 @@ public class MundoController {
     AlumnoService alumnoService;
 
     @Inject
+    ProfesorService profesorService;
+
+    @Inject
     MundoService mundoService;
 
     @Inject
@@ -57,11 +61,28 @@ public class MundoController {
                 models.put("alumno", alumno);
                 models.put("mundos", mundoService.findAll());
                 return "mundos/mundos-listado";
+
             }
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+
+        try {
+            if(session.getAttribute("iniciadaP").equals(true)) {
+                // Obtenemos el profesor
+                Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
+
+                // Llamamos al método findAll() para el listado de Mundos disponibles en la BD
+                models.put("profesor", profesor);
+                models.put("mundos", mundoService.findAll());
+                return "mundos/mundos-listado";
+            }
+
         } catch (NullPointerException e) {
             // Si no hay una sesión, se permite el acceso o crear una.
             return "sesion/login";
         }
+
         return "sesion/login";
 
     }
@@ -74,17 +95,43 @@ public class MundoController {
         HttpSession session = request.getSession();
         Optional<Mundo> mundo = mundoService.buscarPorId(id);
 
-        if (mundo.isPresent()) {
-            Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
-            // Si el Mundo existe, se hará la busqueda de Niveles pertinente, para ello llamamos al método correspondiente
-            List<Nivel> niveles = nivelService.buscarNiveles(mundo.get());
+        try {
+            if (session.getAttribute("iniciada").equals(true)) {
+                Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
+                // Si el Mundo existe, se hará la busqueda de Niveles pertinente, para ello llamamos al método correspondiente
+                List<Nivel> niveles = nivelService.buscarNiveles(mundo.get());
 
-            models.put("mundo", mundo.get());
-            models.put("alumno", alumno);
-            // Mandamos los datos de los Niveles para usarlos en la pantalla
-            models.put("niveles", niveles);
-            return "mundos/mundo-nivel";
+                models.put("mundo", mundo.get());
+                models.put("alumno", alumno);
+                // Mandamos los datos de los Niveles para usarlos en la pantalla
+                models.put("niveles", niveles);
+                return "mundos/mundo-nivel";
+
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
         }
+
+        try {
+            if(session.getAttribute("iniciadaP").equals(true)) {
+                // Obtenemos el profesor
+                Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
+                // Si el Mundo existe, se hará la busqueda de Niveles pertinente, para ello llamamos al método correspondiente
+                List<Nivel> niveles = nivelService.buscarNiveles(mundo.get());
+
+
+                models.put("mundo", mundo.get());
+                models.put("profesor", profesor);
+                // Mandamos los datos de los Niveles para usarlos en la pantalla
+                models.put("niveles", niveles);
+                return "mundos/mundo-nivel";
+            }
+
+        } catch (NullPointerException e) {
+            // Si no hay una sesión, se permite el acceso o crear una.
+            return "sesion/login";
+        }
+
         return "redirect:mundos/mundo-listado";
     }
 

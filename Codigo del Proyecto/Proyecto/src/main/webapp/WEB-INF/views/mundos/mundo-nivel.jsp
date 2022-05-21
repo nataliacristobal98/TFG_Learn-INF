@@ -39,9 +39,23 @@
                     <i class="bi bi-globe2"></i>
                 </a>
 
-                <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
-                    <i class="bi bi-person-workspace"></i>
-                </a>
+                <c:choose>
+                    <c:when test="${alumno != null}">
+                        <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:when>
+                    <c:when test="${profesor != null}">
+                        <a href="${mvc.basePath}/profesor" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:otherwise>
+                </c:choose>
 
                 <a href="${mvc.basePath}/recompensa" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-trophy"></i>
@@ -96,6 +110,10 @@
                         <div class="card-body">
                             <c:choose>
                                 <c:when test="${alumno.puntos >= nivel.puntosDesbloqueo}">
+                                    <a href="${mvc.basePath}/niveles/nivel/${nivel.id}" type="button"
+                                       class="buttonCustom buttonBrown w-75">Jugar</a>
+                                </c:when>
+                                <c:when test="${profesor != null}">
                                     <a href="${mvc.basePath}/niveles/nivel/${nivel.id}" type="button"
                                        class="buttonCustom buttonBrown w-75">Jugar</a>
                                 </c:when>

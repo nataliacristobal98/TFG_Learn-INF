@@ -37,9 +37,23 @@
                     <i class="bi bi-globe2"></i>
                 </a>
 
-                <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
-                    <i class="bi bi-person-workspace"></i>
-                </a>
+                <c:choose>
+                    <c:when test="${alumno != null}">
+                        <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:when>
+                    <c:when test="${profesor != null}">
+                        <a href="${mvc.basePath}/profesor" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${mvc.basePath}/perfil" class="nav-link d-none d-md-block d-lg-block">
+                            <i class="bi bi-person-workspace"></i>
+                        </a>
+                    </c:otherwise>
+                </c:choose>
 
                 <a href="${mvc.basePath}/recompensa" class="nav-link d-none d-md-block d-lg-block">
                     <i class="bi bi-trophy"></i>
@@ -143,7 +157,17 @@
                             </c:forEach>
 
                             <div class="text-center mt-3">
-                                <button class="buttonCustom buttonPink">Enviar</button>
+                                <c:choose>
+                                    <c:when test="${alumno != null}">
+                                        <button class="buttonCustom buttonPink">Enviar</button>
+                                    </c:when>
+                                    <c:when test="${profesor != null}">
+                                        <button class="buttonCustom buttonPink" disabled="disabled">Enviar</button>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <button class="buttonCustom buttonPink">Enviar</button>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </form>
 

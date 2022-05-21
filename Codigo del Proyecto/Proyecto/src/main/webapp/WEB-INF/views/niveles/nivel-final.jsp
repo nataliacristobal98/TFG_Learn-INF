@@ -103,9 +103,8 @@
                                                     <img src="${pageContext.request.contextPath}/resources/img/GoodTest.png" class="figure-img img-fluid rounded w-75 mb-0 mt-0" alt="profesor cuervo donde estas?">
                                                     <!--<figcaption class="figure-caption">Profesor cuervo.</figcaption>-->
                                                 </figure>
-                                                <p>¡Parece que has desbloqueado una nueva insignia!</p>
-                                                <p>Descubre cual es <a
-                                                        href="${mvc.basePath}/recompensa">aqui</a> </p>
+                                                <p>¡Parece que has desbloqueado una nueva <a
+                                                        href="${mvc.basePath}/recompensa">insignea</a>!</p>
                                             </c:when>
                                             <c:otherwise>
                                                 <h4>¡Oh, no!</h4>
