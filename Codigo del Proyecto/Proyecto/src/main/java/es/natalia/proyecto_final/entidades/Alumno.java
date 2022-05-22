@@ -2,14 +2,12 @@ package es.natalia.proyecto_final.entidades;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "alumno")
-
 // La entidad ALUMNO define a los usuarios que usaran la plataforma
 public class Alumno {
 
@@ -26,11 +24,10 @@ public class Alumno {
         this.codigoAlumno = codigoAlumno;
         this.profesor = profesor;
     }
-
+    // Setter para actualizar valores en el perfil del alumno
     public void setMundos(Mundo mundo) {
         this.mundos.add(mundo);
     }
-
     public void setIcono(String icono) {
         this.icono = icono;
     }
@@ -40,14 +37,16 @@ public class Alumno {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "nombre", nullable = false, length = 50)
+    // Nombre: Nombre elegido por el alumno
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
+    // Correo: Usado para dar de alta la cuenta, una de las opciones para el login
     @Column(name = "correo", nullable = false, unique = true, length = 100)
     private String correo;
 
     // Contraseña: Decidida por cada alumno en su login.
-    @Column(name = "contrasena", nullable = false, length = 15)
+    @Column(name = "contrasena", nullable = false, length = 30)
     private String contrasena;
 
     // Puntuacion: Total de todos los puntos del alumno
@@ -74,6 +73,5 @@ public class Alumno {
             joinColumns = @JoinColumn(name = "alumno_id"),
             inverseJoinColumns = @JoinColumn(name = "mundos_id"))
     private Set<Mundo> mundos = new LinkedHashSet<>();
-
 
 }

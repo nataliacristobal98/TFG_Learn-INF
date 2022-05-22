@@ -1,18 +1,15 @@
 package es.natalia.proyecto_final.entidades;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Entity
 @Table(name = "pregunta")
-
 // La entidad PREGUNTA define las preguntas que hay por nivel y sus características.
 public class Pregunta {
     @Id
@@ -24,13 +21,12 @@ public class Pregunta {
     @Column(name = "codigo_pregunta", nullable = false, unique = true, length = 6)
     private String codigoPregunta;
 
-    @Column(name = "texto_pregunta", nullable = false, length = 300)
+    @Column(name = "texto_pregunta", nullable = false, length = 500)
     private String textoPregunta;
 
     // Imagen: Puede que haya preguntas con imagenes complementarias
-    @Column(name = "imagen_pregunta")
+    @Column(name = "imagen_pregunta", length = 300)
     private String imagenPregunta;
-
 
 
     // Test al que pertenece la pregunta
@@ -45,6 +41,4 @@ public class Pregunta {
     @OneToMany(mappedBy = "pregunta", orphanRemoval = true)
     @JsonManagedReference
     private List<Respuesta> respuestas = new ArrayList<>();
-
-
 }

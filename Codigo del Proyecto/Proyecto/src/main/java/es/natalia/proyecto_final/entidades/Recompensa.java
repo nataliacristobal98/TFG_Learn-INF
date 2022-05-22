@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "recompensa")
-
 // La entidad RECOMPENSA define los items que pueden obtener los alumnos al superar los niveles
 public class Recompensa {
     @Id
@@ -15,7 +14,7 @@ public class Recompensa {
     private Long id;
 
     // Tipo de recompensa: Un icono, un diploma...
-    @Column(name = "tipo", nullable = false, length = 50)
+    @Column(name = "tipo", nullable = false, length = 100)
     private String tipo;
 
     // Ruta: Nombre del archivo de recompensa (diploma1.png)
@@ -26,10 +25,7 @@ public class Recompensa {
     @Column(name = "puntos_desbloqueo", nullable = false)
     private Integer puntosDesbloqueo;
 
-
     // Nivel al que pertenece la recompensa
     @OneToOne(mappedBy = "recompensa", optional = false, orphanRemoval = true)
     private Nivel nivel;
-
-
 }

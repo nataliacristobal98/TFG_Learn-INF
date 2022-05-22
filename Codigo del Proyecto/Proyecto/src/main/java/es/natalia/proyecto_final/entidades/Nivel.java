@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "nivel")
-
 // La entidad NIVEL recoge las lecciones y tests de los distintos temas de cada mundo.
 public class Nivel {
     @Id
@@ -33,7 +32,6 @@ public class Nivel {
     @Column(name = "puntos_desbloqueo", nullable = false)
     private Integer puntosDesbloqueo;
 
-
     // Al mundo al que pertenece cada nivel
     @ManyToOne(optional = false)
     @JoinColumn(name = "mundo_id", nullable = false)
@@ -53,6 +51,4 @@ public class Nivel {
     @OneToOne(optional = false, orphanRemoval = true)
     @JoinColumn(name = "test_id", nullable = false, unique = true)
     private Test test;
-
-
 }

@@ -2,7 +2,6 @@ package es.natalia.proyecto_final.entidades;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -11,7 +10,6 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "mundo")
-
 // La entidad MUNDO define los distintos temas y lenguajes que se van a enseñar y los separa.
 public class Mundo {
     @Id
@@ -34,7 +32,6 @@ public class Mundo {
     @Column(name = "puntos_desbloqueo", nullable = false)
     private Integer puntosDesbloqueo;
 
-
     // Conjunto de niveles que componen al mundo
     @OneToMany(mappedBy = "mundo", orphanRemoval = true)
     private Set<Nivel> niveles = new LinkedHashSet<>();
@@ -42,5 +39,4 @@ public class Mundo {
     // Los alumnos que han desbloqueado dicho mundo
     @ManyToMany(mappedBy = "mundos")
     private List<Alumno> alumnos = new ArrayList<>();
-
 }

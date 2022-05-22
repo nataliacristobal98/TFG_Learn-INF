@@ -1,17 +1,13 @@
 package es.natalia.proyecto_final.entidades;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "test")
-
 // La entidad TEST recoge las preguntas y respuesta que hay por nivel
 public class Test {
 
@@ -19,7 +15,6 @@ public class Test {
     public Test() {
 
     }
-
     public Boolean getTerminado() {
         return terminado;
     }
@@ -32,9 +27,11 @@ public class Test {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    // Codigo: Para identificar el test de manera única
     @Column(name = "codigo", nullable = false, unique = true, length = 4)
     private String codigo;
 
+    // Para indicar si el test está terminado
     @Column(name = "terminado", nullable = false)
     private Boolean terminado = false;
 
@@ -48,6 +45,4 @@ public class Test {
     //@JsonIgnore
     //@JsonManagedReference
     private Set<Pregunta> preguntas = new LinkedHashSet<>();
-
-
 }
