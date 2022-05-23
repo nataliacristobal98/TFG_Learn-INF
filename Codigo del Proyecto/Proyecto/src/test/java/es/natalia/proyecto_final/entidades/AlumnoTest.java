@@ -4,16 +4,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AlumnoTest {
+class AlumnoTest {
 
     @Test
-    public void testAlumno() {
-        Profesor profesor = new Profesor();
-        Alumno alumnoNuevo = new Alumno("Maria", "maria@gmail.com", "123", "icon1", "A001", profesor);
-
-        alumnoNuevo.setIcono("icon2");
-
-        assertEquals("icon2", alumnoNuevo.getIcono());
+    public void testAlumno(){
+        Profesor p = new Profesor();
+        Alumno a = new Alumno("a","a","a","a","a",p);
+        assertEquals("a", a.getNombre());
     }
 
+    @Test
+    void setMundos() {
+    }
 }
