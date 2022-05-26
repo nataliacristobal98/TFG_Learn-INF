@@ -1,24 +1,25 @@
 package es.natalia.proyecto_final.servicios;
 
 import es.natalia.proyecto_final.entidades.Alumno;
-import es.natalia.proyecto_final.entidades.Profesor;
+import jakarta.annotation.Resource;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ApplicationScoped
 class AlumnoServiceTest {
 
     @Inject
-    AlumnoService alumnoService;
+    private AlumnoService alumnoService;
 
     @Test
-    void buscarPorId() {
-        Profesor p = new Profesor();
-        Alumno a = new Alumno("a","a","a","a","a",p);
+    public void iconTest(){
+        Alumno alumno = new Alumno();
+        alumnoService.cambiarIcon(alumno, "icon1");
 
-        a.setId(1L);
-        Alumno buscado = alumnoService.buscarPorId(1L);
-        assertEquals(buscado, a);
+        assertEquals("icon1", alumno.getIcono());
     }
+
 }

@@ -17,8 +17,6 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import lombok.extern.slf4j.Slf4j;
 
-
-
 @Slf4j
 @Path("/login")
 @Controller
@@ -40,18 +38,20 @@ public class LoginController {
     @Path("/")
     @GET
     public String index() {
-        // Controlamos que haya una sesión activa. Si la hay, no se puede acceder a esta pantalla ya que causará errores.
+        // A lo largo de todas las pantallas vamos a controlar si hay una sesión activa, y en caso de estarlo de que tipo es
         HttpSession session = request.getSession();
+
         try {
+            // Comprobamos si la sesión activa es de alumno
             if (session.getAttribute("iniciada").equals(true)) {
                 // Redirección a la pantalla principal
                 return "redirect:portada";
             }
         } catch (NullPointerException e) {
-            // Si no hay una sesión, se permite el acceso o crear una.
             System.out.println(e);
         }
         try {
+            // Comprobamos si la sesión activa es de PROFESOR
             if (session.getAttribute("iniciadaP").equals(true) ) {
                 // Redirección a la pantalla principal
                 return "redirect:portada";
@@ -59,6 +59,8 @@ public class LoginController {
         } catch (NullPointerException e) {
             System.out.println(e);
         }
+
+        // En caso de no tener una sesión activa se permitirá el acceso a esta pantalla
         return "sesion/login";
     }
 
