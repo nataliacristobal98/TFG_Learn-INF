@@ -2,7 +2,6 @@ package es.natalia.proyecto_final.controladores;
 
 import es.natalia.proyecto_final.entidades.Alumno;
 import es.natalia.proyecto_final.entidades.Profesor;
-import es.natalia.proyecto_final.repositorio.RecompensaRepository;
 import es.natalia.proyecto_final.servicios.AlumnoService;
 import es.natalia.proyecto_final.servicios.ProfesorService;
 import es.natalia.proyecto_final.servicios.RecompensaService;
@@ -40,11 +39,11 @@ public class RecompensaController {
     @Path("/")
     @GET
     public String index() {
-        // Controlamos que haya una sesión activa. Si la hay, no se puede acceder a esta pantalla ya que causará errores.
+        // Comprobamos que haya una sesión iniciada, ya que si no existe ninguna no se podría acceder a esta parte de la web
         HttpSession session = request.getSession();
 
-        // Si la sesión de alumno
         try {
+            // Si la sesión es de alumno
             if (session.getAttribute("iniciada").equals(true)) {
                 Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
 
@@ -57,10 +56,9 @@ public class RecompensaController {
             System.out.println(e);
         }
 
-        // Si la sesión es de profesor
         try {
+            // Si la sesión es de profesor
             if(session.getAttribute("iniciadaP").equals(true)) {
-                // Obtenemos el profesor
                 Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
 
                 models.put("profesor", profesor);
@@ -69,10 +67,9 @@ public class RecompensaController {
             }
 
         } catch (NullPointerException e) {
-            // Si no hay una sesión, se permite el acceso o crear una.
-            return "sesion/login";
+            System.out.println(e);
         }
-
+        // Si no hay una sesión, se permite el acceso o crear una.
         return "sesion/login";
     }
 }

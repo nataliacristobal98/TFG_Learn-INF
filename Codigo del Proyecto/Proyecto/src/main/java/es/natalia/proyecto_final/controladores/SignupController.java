@@ -30,7 +30,6 @@ public class SignupController {
     @Inject
     ProfesorService profesorService;
 
-    // Crear la sesión para el control de datos
     @Inject
     HttpServletRequest request;
 
@@ -40,15 +39,6 @@ public class SignupController {
     @Path("/")
     @GET
     public String registro() {
-        // Mandamos una lista de los Profesores disponibles para su selección
-        List<Profesor> profesores = profesorService.findAll();
-        try {
-            models.put("profesores", profesores);
-        } catch (NoResultException e) {
-            System.out.println(e);
-            return "sesion/signup";
-        }
-
         // Controlamos que haya una sesión activa. Si la hay, no se puede acceder a esta pantalla ya que causará errores.
         HttpSession session = request.getSession();
         try {
@@ -68,20 +58,29 @@ public class SignupController {
         } catch (NullPointerException e) {
             System.out.println(e);
         }
+
+        try {
+            // Mandamos una lista de los Profesores disponibles para su selección
+            List<Profesor> profesores = profesorService.findAll();
+            models.put("profesores", profesores);
+        } catch (NoResultException e) {
+            System.out.println(e);
+        }
+
         return "sesion/signup";
     }
 
     @POST
     @Path("/signup")
     public String registroHecho(@FormParam(value = "nombre") String nombre, @FormParam(value = "email") String email,  @FormParam(value = "contrasena") String contrasena, @FormParam(value = "icono") String icono, @FormParam(value = "profesor") String profesor) {
-        // Creamos al Alumno nuevo en base a los datos mandados
+        // Comprobamos que el email introducido no está ya registrado
         boolean error = false;
         List<Alumno> alumnos = alumnoService.findAll();
+
         for (Alumno a:alumnos) {
             if(a.getCorreo().equals(email)){
+                // Mandamos un error y de nuevos los datos necesarios de carga para los profesores
                 error = true;
-
-                // Hay que volver a mandar los profesores para la cargarlos en el select
                 List<Profesor> profesores = profesorService.findAll();
                 models.put("profesores", profesores);
                 models.put("mensajeError", error);
@@ -89,12 +88,13 @@ public class SignupController {
             }
         }
 
+        // Si no hay ningún error, procedemos a crear el Alumno
         try {
-
+            // Si no se ha seleccionado un icono, ponemos uno como predeterminado
             if(icono == null){
                 icono = "icono1";
             }
-
+            // Creamos el alumno nuevo
             Alumno alumnoNuevo = alumnoService.crearAlumno(profesor, icono, nombre, email, contrasena);
 
             // Iniciamos la sesión

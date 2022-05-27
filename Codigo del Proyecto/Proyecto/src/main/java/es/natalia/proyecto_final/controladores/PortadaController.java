@@ -32,31 +32,28 @@ public class PortadaController {
     @Inject
     ProfesorService profesorService;
 
-    // La portada principal, de momento solo nos sirve de presentación para el enrutado de los demás Controladores
+
     @Path("/")
     @GET
     public String index() {
-
         // Controlamos que haya una sesión activa. Si la hay, no se puede acceder a esta pantalla ya que causará errores.
         HttpSession session = request.getSession();
 
-        // Si la sesión de alumno
         try {
+            // Si la sesión es de alumno
             if (session.getAttribute("iniciada").equals(true)) {
                 Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
 
                 models.put("alumno", alumno);
                 return "portada/portada";
-
             }
         } catch (NullPointerException e) {
             System.out.println(e);
         }
 
-        // Si la sesión es de profesor
         try {
+            // Si la sesión es de profesor
             if(session.getAttribute("iniciadaP").equals(true)) {
-                // Obtenemos el profesor
                 Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
 
                 models.put("profesor", profesor);
@@ -64,9 +61,8 @@ public class PortadaController {
             }
 
         } catch (NullPointerException e) {
-            return "portada/portada";
+            System.out.println(e);
         }
-
 
         return "portada/portada";
     }

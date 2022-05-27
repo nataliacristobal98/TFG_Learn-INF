@@ -10,14 +10,10 @@ import jakarta.mvc.Controller;
 import jakarta.mvc.Models;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.List;
-
 
 @Slf4j
 @Path("/profesor")
@@ -29,9 +25,6 @@ public class PerfilProfesorController {
     private Models models;
 
     @Inject
-    AlumnoService alumnoService;
-
-    @Inject
     ProfesorService profesorService;
 
     @Inject
@@ -40,13 +33,11 @@ public class PerfilProfesorController {
     @Path("/")
     @GET
     public String index() {
-
-        // Comprobamos que la sesión esté activa para así recoger los datos del Alumno y mostrarlos
+        // Comprobamos que la sesión esté activa para así recoger los datos del Profesor y mostrarlos
         HttpSession session = request.getSession();
         try {
             if (session.getAttribute("iniciadaP").equals(true)) {
                 Long id = Long.parseLong(session.getAttribute("idP").toString());
-
                 Profesor profesor = profesorService.buscarPorId(id);
                 List<Alumno> alumnos = profesorService.listadoAlumnos(profesor);
 
@@ -58,7 +49,6 @@ public class PerfilProfesorController {
             // Si no hay una sesión, se permite el acceso o crear una.
             return "redirect:login";
         }
-
         return "redirect:login";
     }
 

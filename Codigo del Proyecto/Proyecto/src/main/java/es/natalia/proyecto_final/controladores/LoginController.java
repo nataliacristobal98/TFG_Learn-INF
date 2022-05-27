@@ -68,8 +68,13 @@ public class LoginController {
     @Path("/login")
     public String index(@FormParam(value = "codigo") String codigo, @FormParam(value = "contrasena") String contrasena) {
         //System.out.println(codigo + "/" + contrasena);
+
+        // Controlamos que los datos introducidos para el login sean correctos
         boolean error = false;
+
+        // Hay que comprobar si es un alumno o un profesor, y en caso de ser alumno si se inicia con código o email
         try {
+            // Si se introduce un código:
             // Comprobamos que el alumno existe, para ello obtenemos el código introducido.
             Alumno alumno = alumnoService.buscarAlumno(codigo);
 
@@ -77,7 +82,7 @@ public class LoginController {
                 // Si el código existe comprobamos la contraseña
                 if (alumno.getContrasena().equals(contrasena)) {
 
-                    // Si ambos parámetros son correctos iniciamos la sesión
+                    // Si ambos parámetros son correctos iniciamos la sesión de tipo alumno
                     HttpSession session = request.getSession();
                     session.setAttribute("iniciada", true);
                     session.setAttribute("alumno", alumno.getCodigoAlumno());
@@ -86,6 +91,7 @@ public class LoginController {
                     // Redirect porque es otro controller
                     return "redirect:perfil";
                 } else {
+                    // Si no es correcto, lo indicamos
                     error = true;
                     models.put("mensajeError", error);
                     return "sesion/login";
@@ -96,6 +102,7 @@ public class LoginController {
         }
 
         try {
+            // Si se introduce un correo:
             // Comprobamos que el alumno existe, para ello obtenemos el correo introducido.
             Alumno alumno = alumnoService.buscarAlumnoCorreo(codigo);
 
@@ -103,7 +110,7 @@ public class LoginController {
                 // Si el código existe comprobamos la contraseña
                 if (alumno.getContrasena().equals(contrasena)) {
 
-                    // Si ambos parámetros son correctos iniciamos la sesión
+                    // Si ambos parámetros son correctos iniciamos la sesión de tipo alumno
                     HttpSession session = request.getSession();
                     session.setAttribute("iniciada", true);
                     session.setAttribute("alumno", alumno.getCodigoAlumno());
@@ -112,6 +119,7 @@ public class LoginController {
                     // Redirect porque es otro controller
                     return "redirect:perfil";
                 } else {
+                    // Si no es correcto, lo indicamos
                     error = true;
                     models.put("mensajeError", error);
                     return "sesion/login";
@@ -122,14 +130,14 @@ public class LoginController {
         }
 
         try {
-            // Comprobamos que el alumno existe, para ello obtenemos el correo introducido.
+            // Si el correo introducido pertenece a un profesor, comprobamos si es correcto
             Profesor profesor = profesorService.buscarProfesorCorreo(codigo);
 
             if (profesor != null) {
-                // Si el código existe comprobamos la contraseña
+                // Si el correo del profesor existe comprobamos la contraseña
                 if (profesor.getContrasena().equals(contrasena)) {
 
-                    // Si ambos parámetros son correctos iniciamos la sesión
+                    // Si ambos parámetros son correctos iniciamos la sesión de tipo profesor
                     HttpSession session = request.getSession();
                     session.setAttribute("iniciadaP", true);
                     session.setAttribute("idP", profesor.getId());
@@ -144,10 +152,6 @@ public class LoginController {
             return "sesion/login";
         }
 
-
-
         return "sesion/login";
     }
-
-
 }

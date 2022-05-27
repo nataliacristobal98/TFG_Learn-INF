@@ -41,13 +41,15 @@ public class NivelesController {
     @GET
     @Path("{id}")
     public String editar(@PathParam("id") Long id) {
+
+        // Buscamos la sesión activa, la lección y el test del nivel correspondiente
         HttpSession session = request.getSession();
         Nivel nivel = nivelService.buscarPorId(id);
         Test test = nivelService.buscarTest(nivel);
         Leccion leccion = nivelService.buscarLeccion(nivel);
 
-        // Si la sesión de alumno
         try {
+            // Si la sesión es de alumno
             if (session.getAttribute("iniciada").equals(true)) {
                 Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
 
@@ -63,8 +65,8 @@ public class NivelesController {
             System.out.println(e);
         }
 
-        // Si la sesión es de profesor
         try {
+            // Si la sesión es de profesor
             if(session.getAttribute("iniciadaP").equals(true)) {
                 // Obtenemos el profesor
                 Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
@@ -78,10 +80,10 @@ public class NivelesController {
             }
 
         } catch (NullPointerException e) {
-            // Si no hay una sesión, se permite el acceso o crear una.
-            return "sesion/login";
+            System.out.println(e);
         }
 
+        // Si no se encuentra una sesión, se redirecciona al login
         return "sesion/login";
     }
 
@@ -95,12 +97,13 @@ public class NivelesController {
 
         // Para saber el test en el que estamos lo guardamos en la sesión, para luego poder terminarlo si se supera el test
         HttpSession session = request.getSession();
+        session.setAttribute("nivelActual", idN);
         session.setAttribute("testActual", idT);
         List<Pregunta> preguntas = nivelService.buscarPreguntas(test);
         List<Respuesta> respuestas = nivelService.buscarRespuestas();
 
-        // Si la sesión de alumno
         try {
+            // Si la sesión es de alumno
             if (session.getAttribute("iniciada").equals(true)) {
                 Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
 
@@ -117,8 +120,8 @@ public class NivelesController {
             System.out.println(e);
         }
 
-        // Si la sesión es de profesor
         try {
+            // Si la sesión es de profesor
             if(session.getAttribute("iniciadaP").equals(true)) {
                 // Obtenemos el profesor
                 Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
@@ -133,14 +136,15 @@ public class NivelesController {
             }
 
         } catch (NullPointerException e) {
-            // Si no hay una sesión, se permite el acceso o crear una.
-            return "sesion/login";
+            System.out.println(e);
         }
 
         return "sesion/login";
-
     }
 
+
+    // Para los siguientes métodos no necesitamos saber que tipo de sesión es, ya que los profesores no tienen
+    // acceso a estas funciones
     @POST
     @Path("/resultTest")
     public String resultadosTest(@FormParam(value = "respuestas[]") List<String> respuestas) {
@@ -162,26 +166,30 @@ public class NivelesController {
             }
         }
         Test test = nivelService.buscarPorIdTest(Long.parseLong(session.getAttribute("testActual").toString()));
-        if(puntos>=5){
+        Nivel nivel = nivelService.buscarPorId(Long.parseLong(session.getAttribute("nivelActual").toString()));
+
+        // Si los puntos son igual o mayores a los necesarios para aprobarlo, se finaliza el test con exito
+        if(puntos >= nivel.getPuntuacionMinima()){
+            // Se suman los puntos a la cuenta del alumno
             alumnoService.guardarPuntos(puntos, alumno);
             //nivelService.terminarTest(test);
             session.setAttribute("puntosGanados", alumno.getPuntos());
             session.setAttribute("puntosTest", puntos);
         }else{
+            // Si no se supera el test, no se gana ninguno
             session.setAttribute("puntosGanados", 0);
         }
-
         return "redirect:niveles/nivel/testSuperado";
     }
 
-    // Página final del Test
     @GET
     @Path("/testSuperado")
     public String superado() {
-        //System.out.println("ok, test superado");
         HttpSession session = request.getSession();
+        Nivel nivel = nivelService.buscarPorId(Long.parseLong(session.getAttribute("nivelActual").toString()));
 
-        models.put("superado", 3);
+        // Pantalla final, se indica si el test está superado o no
+        models.put("superado", nivel.getPuntuacionMinima());
         models.put("puntosTest", session.getAttribute("puntosTest"));
         models.put("puntos", Integer.parseInt(session.getAttribute("puntosGanados").toString()));
         return "niveles/nivel-final";

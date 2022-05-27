@@ -16,11 +16,8 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Slf4j
 @Path("/mundos/mundo")
@@ -46,12 +43,14 @@ public class MundoController {
     @Inject
     NivelService nivelService;
 
-    // Listado de Mundos, en esta pantalla se accese a los niveles
+    // Listado de Mundos, en esta pantalla se accede a los niveles
     @GET
     @Path("/")
     public String index() {
         // Comprobamos que haya una sesión iniciada, ya que si no existe ninguna no se podría acceder a esta parte de la web
         HttpSession session = request.getSession();
+
+        // Dependiendo del tipo de sesión hay que indicar el alumno o profesor neceasrio
         try {
             if (session.getAttribute("iniciada").equals(true)) {
                 // Obtenemos el alumno que está activo
@@ -69,7 +68,7 @@ public class MundoController {
 
         try {
             if(session.getAttribute("iniciadaP").equals(true)) {
-                // Obtenemos el profesor
+                // Obtenemos el profesor que esta activo
                 Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
 
                 // Llamamos al método findAll() para el listado de Mundos disponibles en la BD
@@ -79,10 +78,10 @@ public class MundoController {
             }
 
         } catch (NullPointerException e) {
-            // Si no hay una sesión, se permite el acceso o crear una.
-            return "sesion/login";
+            System.out.println(e);
         }
 
+        // Si no hay una sesión, se permite el acceso o crear una.
         return "sesion/login";
 
     }
@@ -103,6 +102,7 @@ public class MundoController {
 
                 models.put("mundo", mundo.get());
                 models.put("alumno", alumno);
+
                 // Mandamos los datos de los Niveles para usarlos en la pantalla
                 models.put("niveles", niveles);
                 return "mundos/mundo-nivel";
@@ -114,26 +114,21 @@ public class MundoController {
 
         try {
             if(session.getAttribute("iniciadaP").equals(true)) {
-                // Obtenemos el profesor
                 Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
                 // Si el Mundo existe, se hará la busqueda de Niveles pertinente, para ello llamamos al método correspondiente
                 List<Nivel> niveles = nivelService.buscarNiveles(mundo.get());
 
-
                 models.put("mundo", mundo.get());
                 models.put("profesor", profesor);
+
                 // Mandamos los datos de los Niveles para usarlos en la pantalla
                 models.put("niveles", niveles);
                 return "mundos/mundo-nivel";
             }
-
         } catch (NullPointerException e) {
-            // Si no hay una sesión, se permite el acceso o crear una.
-            return "sesion/login";
+            System.out.println(e);
         }
 
         return "redirect:mundos/mundo-listado";
     }
-
-
 }
