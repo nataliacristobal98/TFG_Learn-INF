@@ -1,17 +1,13 @@
 package es.natalia.proyecto_final.servicios;
 
 import es.natalia.proyecto_final.entidades.Alumno;
-import es.natalia.proyecto_final.entidades.Mundo;
 import es.natalia.proyecto_final.entidades.Profesor;
 import es.natalia.proyecto_final.repositorio.AlumnoRepository;
-import es.natalia.proyecto_final.repositorio.MundoRepository;
 import es.natalia.proyecto_final.repositorio.ProfesorRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-
 import java.text.Normalizer;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
 @ApplicationScoped
@@ -23,14 +19,19 @@ public class AlumnoService {
     @Inject
     ProfesorRepository profesorRepository;
 
+    // Para encontrar a los Alumnos
     public List<Alumno> findAll() {
         return alumnoRepository.findAll();
     }
-
     public Alumno buscarPorId(Long id) {
         return alumnoRepository.findBy(id);
     }
 
+    // Buscar a los Alumnos para el login
+    public Alumno buscarAlumno(String codigo){return alumnoRepository.findByCodigoAlumno(codigo);}
+    public Alumno buscarAlumnoCorreo(String correo){return alumnoRepository.findByCorreo(correo);}
+
+    // Creación de un Alumno nuevo
     public Alumno crearAlumno(String profesor, String icono, String nombre, String email, String contrasena){
         Profesor profesorEncontrado = profesorRepository.findBy(Long.parseLong(profesor));
 
@@ -38,24 +39,34 @@ public class AlumnoService {
         int x = random.nextInt(900) + 100;
         String codigoAlumnoNuevo = profesorEncontrado.getCodigoProfesor() + x;
 
-        if(icono.equals("icono1")){
-            icono = "/proyecto_final/resources/img/icon1.jpg";
-        }else if(icono.equals("icono2")){
-            icono = "/proyecto_final/resources/img/icon2.jpg";
-        }else if(icono.equals("icono3")){
-            icono = "/proyecto_final/resources/img/icon3.jpg";
-        }else if(icono.equals("icono4")){
-            icono = "/proyecto_final/resources/img/icon4.jpg";
-        }else if(icono.equals("icono5")){
-            icono = "/proyecto_final/resources/img/icon5.jpg";
-        }else if(icono.equals("icono6")){
-            icono = "/proyecto_final/resources/img/icon6.jpg";
-        }else if(icono.equals("icono7")){
-            icono = "/proyecto_final/resources/img/icon7.jpg";
-        }else if(icono.equals("icono8")){
-            icono = "/proyecto_final/resources/img/icon8.jpg";
-        }else{
-            icono = "/proyecto_final/resources/img/icon9.jpg";
+        switch (icono) {
+            case "icono1":
+                icono = "/proyecto_final/resources/img/icon1.jpg";
+                break;
+            case "icono2":
+                icono = "/proyecto_final/resources/img/icon2.jpg";
+                break;
+            case "icono3":
+                icono = "/proyecto_final/resources/img/icon3.jpg";
+                break;
+            case "icono4":
+                icono = "/proyecto_final/resources/img/icon4.jpg";
+                break;
+            case "icono5":
+                icono = "/proyecto_final/resources/img/icon5.jpg";
+                break;
+            case "icono6":
+                icono = "/proyecto_final/resources/img/icon6.jpg";
+                break;
+            case "icono7":
+                icono = "/proyecto_final/resources/img/icon7.jpg";
+                break;
+            case "icono8":
+                icono = "/proyecto_final/resources/img/icon8.jpg";
+                break;
+            default:
+                icono = "/proyecto_final/resources/img/icon9.jpg";
+                break;
         }
 
         String cadenaNormalize = Normalizer.normalize(nombre, Normalizer.Form.NFD);
@@ -67,18 +78,20 @@ public class AlumnoService {
         return alumnoNuevo;
     }
 
+    // Guardar los puntos ganadaos de un Alumno es el test
     public void guardarPuntos(Integer puntos, Alumno alumno){
         alumno.setPuntos(alumno.getPuntos()+puntos);
         this.guardar(alumno);
     }
 
+    // Cambiar el icon del perfil del Alumno
     public void cambiarIcon(Alumno alumno, String icono){
         alumno.setIcono(icono);
         this.guardar(alumno);
     }
 
+    // Salvar cambios en el la entidad Alumno en la BD
     public void guardar(Alumno alumno){
-
         // Comprobar puntos y desbloqueos
         /*
         List<Mundo> mundos = mundoRepository.findAll();
@@ -88,12 +101,6 @@ public class AlumnoService {
             }
         }
         */
-
         alumnoRepository.save(alumno);
     }
-
-    public Alumno buscarAlumno(String codigo){return alumnoRepository.findByCodigoAlumno(codigo);}
-
-    public Alumno buscarAlumnoCorreo(String correo){return alumnoRepository.findByCorreo(correo);}
-
 }

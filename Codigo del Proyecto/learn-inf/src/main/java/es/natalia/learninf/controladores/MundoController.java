@@ -1,0 +1,134 @@
+package es.natalia.learninf.controladores;
+
+import es.natalia.learninf.entidades.*;
+import es.natalia.learninf.servicios.AlumnoService;
+import es.natalia.learninf.servicios.MundoService;
+import es.natalia.learninf.servicios.NivelService;
+import es.natalia.learninf.servicios.ProfesorService;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import jakarta.mvc.Controller;
+import jakarta.mvc.Models;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.constraints.NotNull;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import lombok.extern.slf4j.Slf4j;
+import java.util.List;
+import java.util.Optional;
+
+@Slf4j
+@Path("/mundos/mundo")
+@Controller
+@RequestScoped
+public class MundoController {
+
+    @Inject
+    HttpServletRequest request;
+
+    @Inject
+    private Models models;
+
+    @Inject
+    AlumnoService alumnoService;
+
+    @Inject
+    ProfesorService profesorService;
+
+    @Inject
+    MundoService mundoService;
+
+    @Inject
+    NivelService nivelService;
+
+    // Listado de Mundos, en esta pantalla se accede a los niveles
+    @GET
+    @Path("/")
+    public String index() {
+        // Comprobamos que haya una sesión iniciada, ya que si no existe ninguna no se podría acceder a esta parte de la web
+        HttpSession session = request.getSession();
+
+        // Dependiendo del tipo de sesión hay que indicar el alumno o profesor neceasrio
+        try {
+            if (session.getAttribute("iniciada").equals(true)) {
+                // Obtenemos el alumno que está activo
+                Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
+
+                // Llamamos al método findAll() para el listado de Mundos disponibles en la BD
+                models.put("alumno", alumno);
+                models.put("mundos", mundoService.findAll());
+                return "mundos/mundos-listado";
+
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+
+        try {
+            if(session.getAttribute("iniciadaP").equals(true)) {
+                // Obtenemos el profesor que esta activo
+                Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
+
+                // Llamamos al método findAll() para el listado de Mundos disponibles en la BD
+                models.put("profesor", profesor);
+                models.put("mundos", mundoService.findAll());
+                return "mundos/mundos-listado";
+            }
+
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+
+        // Si no hay una sesión, se permite el acceso o crear una.
+        return "sesion/login";
+
+    }
+
+    // Listado de Niveles por el Mundo seleccionado. Se pasa el id del Mundo para rescatar los Niveles asociado a este.
+    @GET
+    @Path("{id}")
+    public String detalle(@PathParam("id") @NotNull Long id) {
+
+        HttpSession session = request.getSession();
+        Optional<Mundo> mundo = mundoService.buscarPorId(id);
+
+        try {
+            if (session.getAttribute("iniciada").equals(true)) {
+                Alumno alumno = alumnoService.buscarPorId(Long.parseLong(session.getAttribute("id").toString()));
+                // Si el Mundo existe, se hará la busqueda de Niveles pertinente, para ello llamamos al método correspondiente
+                List<Nivel> niveles = nivelService.buscarNiveles(mundo.get());
+
+                models.put("mundo", mundo.get());
+                models.put("alumno", alumno);
+
+                // Mandamos los datos de los Niveles para usarlos en la pantalla
+                models.put("niveles", niveles);
+                return "mundos/mundo-nivel";
+
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+
+        try {
+            if(session.getAttribute("iniciadaP").equals(true)) {
+                Profesor profesor = profesorService.buscarProfesorCod(session.getAttribute("codP").toString());
+                // Si el Mundo existe, se hará la busqueda de Niveles pertinente, para ello llamamos al método correspondiente
+                List<Nivel> niveles = nivelService.buscarNiveles(mundo.get());
+
+                models.put("mundo", mundo.get());
+                models.put("profesor", profesor);
+
+                // Mandamos los datos de los Niveles para usarlos en la pantalla
+                models.put("niveles", niveles);
+                return "mundos/mundo-nivel";
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+
+        return "redirect:mundos/mundo-listado";
+    }
+}

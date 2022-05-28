@@ -12,5 +12,4 @@ public interface AlumnoRepository extends EntityRepository<Alumno, Long> {
 
     // Encontrar por correo
     Alumno findByCorreo(String correo);
-
 }

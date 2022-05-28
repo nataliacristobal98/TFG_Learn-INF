@@ -12,7 +12,8 @@ public class SesionService {
     @Inject
     HttpServletRequest request;
 
-    public HttpSession crearSesion(Alumno alumnoNuevo){
+    // Para la creación de la sesión
+    public HttpSession crearSesionAlumno(Alumno alumnoNuevo){
         HttpSession session = request.getSession();
         session.setAttribute("iniciada", true);
         session.setAttribute("alumno", alumnoNuevo.getCodigoAlumno());

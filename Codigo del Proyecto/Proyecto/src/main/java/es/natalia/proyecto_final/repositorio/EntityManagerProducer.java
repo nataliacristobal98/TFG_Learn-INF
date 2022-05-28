@@ -14,7 +14,7 @@ public class EntityManagerProducer
   @PersistenceUnit
   private EntityManagerFactory emf;
 
-  @Produces // you can also make this @RequestScoped
+  @Produces
   public EntityManager create()
   {
     return emf.createEntityManager();

@@ -1,0 +1,48 @@
+package es.natalia.learninf.servicios;
+
+import es.natalia.learninf.entidades.Alumno;
+import es.natalia.learninf.entidades.Profesor;
+import es.natalia.learninf.repositorio.AlumnoRepository;
+import es.natalia.learninf.repositorio.ProfesorRepository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
+
+@ApplicationScoped
+public class ProfesorService {
+
+    @Inject
+    ProfesorRepository profesorRepository;
+
+    @Inject
+    AlumnoRepository alumnoRepository;
+
+    // Para encontrar los Profesores
+    public List<Profesor> findAll() {
+        return profesorRepository.findAll();
+    }
+    public Profesor buscarPorId(Long id) {
+        return profesorRepository.findBy(id);
+    }
+
+    // Para la busqueda del profesor en el login
+    public Profesor buscarProfesorCorreo(String correo){return profesorRepository.findByCorreo(correo);}
+    public Profesor buscarProfesorCod(String cod){return profesorRepository.findByCodigoProfesor(cod);}
+
+    // Montrar el listado de Alumnos asociados a un profesor
+    public List<Alumno> listadoAlumnos(Profesor profesor) {
+        Long id = profesor.getId();
+        List<Alumno> alumnos = alumnoRepository.findAll();
+        List<Alumno> alumnosProfe = new ArrayList<Alumno>();
+
+        for (int i = 0; i < alumnos.size(); i++) {
+            Profesor profesorAlumno = alumnos.get(i).getProfesor();
+            if(profesorAlumno.getId().equals(id)){
+                alumnosProfe.add(alumnos.get(i));
+            }
+        }
+        return alumnosProfe;
+    }
+
+}
