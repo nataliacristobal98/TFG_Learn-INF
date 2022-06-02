@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  proyectojpa:
+    image: mysql
+    container_name: proyectojpa-mysql
+    ports: 
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: natalia
+      MYSQL_DATABASE: learninf
+      MYSQL_USER: natalia
+      MYSQL_PASSWORD: natalia
+    volumes:
+      - ./db-data:/var/lib/mysql
+

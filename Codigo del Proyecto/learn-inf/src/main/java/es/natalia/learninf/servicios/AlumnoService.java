@@ -41,31 +41,31 @@ public class AlumnoService {
 
         switch (icono) {
             case "icono1":
-                icono = "/proyecto_final/resources/img/icon1.jpg";
+                icono = "/learnINF/resources/img/icon1.jpg";
                 break;
             case "icono2":
-                icono = "/proyecto_final/resources/img/icon2.jpg";
+                icono = "/learnINF/resources/img/icon2.jpg";
                 break;
             case "icono3":
-                icono = "/proyecto_final/resources/img/icon3.jpg";
+                icono = "/learnINF/resources/img/icon3.jpg";
                 break;
             case "icono4":
-                icono = "/proyecto_final/resources/img/icon4.jpg";
+                icono = "/learnINF/resources/img/icon4.jpg";
                 break;
             case "icono5":
-                icono = "/proyecto_final/resources/img/icon5.jpg";
+                icono = "/learnINF/resources/img/icon5.jpg";
                 break;
             case "icono6":
-                icono = "/proyecto_final/resources/img/icon6.jpg";
+                icono = "/learnINF/resources/img/icon6.jpg";
                 break;
             case "icono7":
-                icono = "/proyecto_final/resources/img/icon7.jpg";
+                icono = "/learnINF/resources/img/icon7.jpg";
                 break;
             case "icono8":
-                icono = "/proyecto_final/resources/img/icon8.jpg";
+                icono = "/learnINF/resources/img/icon8.jpg";
                 break;
             default:
-                icono = "/proyecto_final/resources/img/icon9.jpg";
+                icono = "/learnINF/resources/img/icon9.jpg";
                 break;
         }
 

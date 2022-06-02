@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  learn-mysql:
+    image: mysql
+    container_name: learn-mysql
+    ports: 
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: natalia
+      MYSQL_DATABASE: learninfdb
+      MYSQL_USER: learn
+      MYSQL_PASSWORD: learn
+    volumes:
+      - ./db-data:/var/lib/mysql
+
+  learn-wildfly:
+    image: wildfly:learninf
+    container_name: learn-wildfly
+    depends_on:
+      - learn-mysql
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+    volumes:
+      - deployments:/opt/jboss/wildfly/standalone/deployments
+
+  learn-sftp:
+    image: atmoz/sftp:alpine
+    container_name: learn-sftp
+    ports:
+      - "2201:22"
+    volumes:
+      - deployments:/home/learninf/deployments
+    command: learninf:learn:1000
+
+volumes:
+  deployments:

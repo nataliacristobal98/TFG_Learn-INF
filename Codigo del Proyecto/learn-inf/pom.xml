@@ -24,7 +24,7 @@
 
         <!-- Wildfly server -->
         <wildfly.version>23.0.2.Final</wildfly.version>
-        <wildfly.console.username>learninf</wildfly.console.username>
+        <wildfly.console.username>learn</wildfly.console.username>
         <wildfly.console.password>learning</wildfly.console.password>
 
         <!-- JUnit 5 -->

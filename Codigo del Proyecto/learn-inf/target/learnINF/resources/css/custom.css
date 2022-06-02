@@ -1,0 +1,291 @@
+header {
+  background-color: #6d4947;
+}
+
+footer {
+  background-color: #6d4947;
+}
+
+a {
+  color: #F5926E;
+  font-weight: bold;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #62D8BD;
+}
+
+i {
+  font-size: xx-large;
+  color: white;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+i:hover {
+  color: #62D8BD;
+}
+
+select:hover {
+  background-color: #62D8BD;
+  color: white;
+  font-weight: bold;
+}
+
+select::after {
+  background-color: #62D8BD;
+  color: white;
+  font-weight: bold;
+}
+
+option {
+  background-color: white;
+  color: #6d4947;
+}
+
+.buttonCustom {
+  color: white;
+  border-radius: 8px;
+  border-style: none;
+  padding: 10px 24px;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.buttonOrange {
+  background-color: #F5926E;
+}
+
+.buttonOrange:hover {
+  background-color: #e67349;
+  color: white;
+}
+
+.buttonMint {
+  background-color: #62D8BD;
+}
+
+.buttonMint:hover {
+  background-color: #3c9984;
+  color: white;
+}
+
+.buttonRed {
+  background-color: #E54D4D;
+  color: white;
+}
+
+.buttonRed:hover {
+  background-color: #c02929;
+  color: white;
+}
+
+.buttonPink {
+  background-color: #FF9DA4;
+  color: white;
+}
+
+.buttonPink:hover {
+  background-color: #ff6c76;
+  color: white;
+}
+
+.buttonYellow {
+  background-color: #FFE572;
+  margin-left: 30px;
+  color: white;
+}
+
+.buttonYellow:hover {
+  background-color: #ffd728;
+  color: white;
+}
+
+.buttonBrown {
+  background-color: #6d4947;
+  color: white;
+}
+
+.buttonBrown:hover {
+  background-color: #3d2a28;
+  color: white;
+}
+
+.buttonBrown:disabled {
+  opacity: 70%;
+}
+
+.buttonMenu {
+  background-color: #F5926E;
+}
+
+.navbar-dark .navbar-toggler {
+  color: #e67349;
+}
+
+.bgLearn {
+  background-color: #F5926E;
+  border-radius: 10px;
+  padding: 2em;
+  color: white;
+}
+
+.bgLearn2 {
+  background-color: white;
+  border-radius: 10px;
+  color: #6d4947;
+}
+
+.bgLearn3 {
+  background-color: #e1e1e1 !important;
+  padding: 2em;
+  border-radius: 10px;
+  color: white !important;
+}
+
+.bgLearn4 {
+  background-color: #E54D4D !important;
+  padding: 2em;
+  border-radius: 10px;
+  color: white !important;
+}
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: #62D8BD;
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: #3c9984;
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #62D8BD;
+  border-bottom-color: #62D8BD;
+}
+
+.selectedPlace > i {
+  color: #62D8BD !important;
+}
+
+.socialMedia {
+  color: #F5926E;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.imgProfile {
+  border-radius: 20px;
+  border: 10px solid #6d4947;
+}
+
+@media (max-width: 390px) {
+  .imgProfile {
+    border-radius: 20px;
+    border: 10px solid #6d4947;
+    width: -webkit-fill-available;
+  }
+}
+
+.boderProfile {
+  border-radius: 20px;
+  border: 10px solid white;
+}
+
+.card {
+  border: none;
+  background-color: transparent;
+}
+
+.card-header {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  color: white;
+  background-color: rgb(98 216 189);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card-header:first-child {
+  background-color: #62D8BD;
+  color: white;
+  border-radius: 21px 21px 0 0;
+}
+
+.card-body {
+  background-color: #F5926E;
+  color: white;
+  border-radius: 0 0 21px 21px;
+}
+
+.textBrown {
+  color: #6d4947 !important;
+}
+
+.colorRed {
+  color: #E54D4D !important;
+}
+
+.colorRed:hover {
+  color: #c02929 !important;
+}
+
+.colorPink{
+  color: #FF9DA4 !important;
+}
+
+.colorPink:hover{
+  color: #ff6c76 !important;
+}
+
+.responseTest {
+  background-color: #F5926E;
+  color: white;
+  border-radius: 21px 21px 0 0;
+  padding: 5px 0px 5px 10px;
+}
+
+.modal-body {
+  background-color: #6d4947!important;
+  color: white;
+}
+
+.modal-header{
+  background-color: #F5926E !important;
+  color: white;
+}
+
+.bgPrizes{
+  background-color: #6d4947;
+  border-radius: 10px;
+  padding: 2em;
+  color: white;
+}
+
+.formVal:invalid {
+  border: 3px solid #F5926E;
+}
+.formVal:valid {
+  border: 3px solid #62D8BD;
+}
+
+
+/*# sourceMappingURL=custom.css.map */
