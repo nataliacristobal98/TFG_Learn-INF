@@ -1,4 +1,4 @@
-# Proyecto de fin de grado: 
+# Proyecto de fin de grado: LEARN-INF
 
 *Realizado por Natalia Cristóbal Rodríguez - 2ºDAW*
 
