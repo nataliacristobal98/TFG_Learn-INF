@@ -14,7 +14,7 @@
 
 ## Despliegue del proyecto
 
- - Creación de los contenedores Docker
+ 1. Creación de los contenedores Docker
 
 En la carpeta **Despliegue_LearnINF** se encuentra los archivos necesarios para su despliegue.
 
@@ -34,7 +34,7 @@ docker compose up -d
 
 ![imagen](Capturas/Docker2.png)
 
- - Creación, configuración e importación de la Base de Datos
+ 2. Creación, configuración e importación de la Base de Datos
 
 Primero, mediante la herramienta de DBeaver conectaremos con la BD.
 
@@ -62,7 +62,7 @@ GRANT ALL PRIVILEGES ON proyectofinal.* TO 'natalia'@'%';
   ![imagen](Capturas/MySQL3.png)
  ![imagen](Capturas/MySQL4.png)
 
- - Configuración del DataSource con Wildfly
+ 3. Configuración del DataSource con Wildfly
 
 Ahora configuramos en DataSource en el puerto 99:90 en el navegador con los estos datos:
 
@@ -88,7 +88,7 @@ Aquí le daremos al botón de añadir una DataSource he introduciremos los sigui
 ![imagen](Capturas/DataSource6.png)
 ![imagen](Capturas/DataSource7.png)
 
- - Despliegue con SFTP
+ 4. Despliegue con SFTP
 
  Volvemos a la terminal y nos situamos en la carpeta del despliege para conectarnos al servicio SFTP definido en el docker compose con el nombre de learninf.
 
