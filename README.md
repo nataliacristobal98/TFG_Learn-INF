@@ -115,7 +115,7 @@ http://localhost:8080/learnINF/mvc/portada
 
 ## Manual de usuario
 
-[imagen](Capturas/Portada.png)
+![imagen](Capturas/Portada.png)
 
 En la plataforma disponemos de dos tipos de usuarios, los alumnos y los profesores. Primero vamos a ver el uso que tienen los alumnos.
 
@@ -144,7 +144,7 @@ Si superamos este test obtendremos los puntos necesarios para desbloquear nuevos
 
 Si no superamos el test habrá que intentarlo de nuevo.
 
-[imagen](Capturas/Alumno9.png)
+![imagen](Capturas/Alumno9.png)
 
 Para iniciar la sesión como profesores tendremos que hacerlo directamente desde la pantalla de Inicio de Sesión, ya que los profesores no cuentan con un registro propio. Para acceder a uno de estos perfiles podemos usar estos datos:
 
@@ -153,11 +153,11 @@ Para iniciar la sesión como profesores tendremos que hacerlo directamente desde
 
 Los profesores solo pueden iniciar sesión con su correo, y su perfil cuenta con un listado de alumnos a su cargo.
 
-[imagen](Capturas/Profesor1.png)
-[imagen](Capturas/Profesor2.png)
+![imagen](Capturas/Profesor1.png)
+![imagen](Capturas/Profesor2.png)
 
 Este perfil tiene todo tipo de accesos, puede ver cada mundo y nivel disponible. Las lecciones y los test también están de libre acceso para ellos, contando con la ventaja de tener las respuestas indicadas de cada test señaladas. Los profesores no pueden realizar los tests, ya que produciría errores y en verdad no es una acción necesaria.
 
-[imagen](Capturas/Profesor4.png)
-[imagen](Capturas/Profesor5.png)
-[imagen](Capturas/Profesor6.png)
+![imagen](Capturas/Profesor4.png)
+![imagen](Capturas/Profesor5.png)
+![imagen](Capturas/Profesor6.png)
