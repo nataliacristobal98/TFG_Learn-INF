@@ -124,7 +124,11 @@ Siendo alumno podemos crear una cuenta desde la pantalla de Registro. Introducio
 ![imagen](Capturas/Alumno1.png)
 ![imagen](Capturas/Alumno4.png)
 
-Podemos iniciar de dos maneras siendo alumno, con nuestro código asignado una vez creamos nuestra cuenta o con nuestro email.
+Podemos iniciar de dos maneras siendo alumno, con nuestro código asignado una vez creamos nuestra cuenta o con nuestro email. Los datos para acceder con el usuario anteriormente creado serían:
+
+ - Correo: marina_mora@learn.com
+ - Código: A001
+ - Contraseña: abc
 
 ![imagen](Capturas/Alumno2.png)
 ![imagen](Capturas/Alumno3.png)
