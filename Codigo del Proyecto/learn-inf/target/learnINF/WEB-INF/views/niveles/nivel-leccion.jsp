@@ -117,7 +117,7 @@
                                 ${leccion.contenido1}
                             </p>
 
-                            <figure class="figure text-center col-xl-5 col-md-8 col-sx-10 mx-auto mb-0">
+                            <figure class="figure text-center col-xl-10 col-md-10 col-sx-10 mx-auto mb-0">
                                 <img src="${leccion.imagenLeccion}" class="figure-img img-fluid">
                             </figure>
 
