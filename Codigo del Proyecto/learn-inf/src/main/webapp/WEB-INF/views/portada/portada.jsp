@@ -131,13 +131,12 @@
             </div>
 
             <div class="col-xl-3 col-md-5 col-lg-2 col-xs-1">
-                <h5>Nuestro proyecto</h5>
+                <h5>Recomendaciones</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Quiénes somos</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Objetivos</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Blog</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Contacto</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Webs de apoyo</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Ejercicios extra</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Tutoriales</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Clases adicionales</a></li>
                 </ul>
             </div>
 
@@ -186,8 +185,9 @@
         </div>
 
 
-        <div class="d-flex justify-content-between pt-4 my-4 border-top">
-            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />Este <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" rel="dct:type">obra</span> está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional</a>.
+        <div class="d-flex justify-content-between text-center pt-4 my-4 border-top">
+            <p>Esta web está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-SinObraDerivada 4.0 Internacional</a></p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
         </div>
     </div>
 </footer>
