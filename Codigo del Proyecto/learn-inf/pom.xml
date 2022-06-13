@@ -24,8 +24,8 @@
 
         <!-- Wildfly server -->
         <wildfly.version>23.0.2.Final</wildfly.version>
-        <wildfly.console.username>learn</wildfly.console.username>
-        <wildfly.console.password>learning</wildfly.console.password>
+        <wildfly.console.username>profesor</wildfly.console.username>
+        <wildfly.console.password>learn</wildfly.console.password>
 
         <!-- JUnit 5 -->
         <junit.version>5.8.2</junit.version>

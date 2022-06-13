@@ -23,13 +23,13 @@ ENV LAUNCH_JBOSS_IN_BACKGROUND true
 
 USER jboss
 
-ENV ADMIN_USER learn
-ENV ADMIN_PASS learning
+ENV ADMIN_USER profesor
+ENV ADMIN_PASS learn
 
 RUN $JBOSS_HOME/bin/add-user.sh -u $ADMIN_USER -p $ADMIN_PASS -g admin --silent
 
 # Expose the ports in which we're interested
-EXPOSE 8080 9990
+EXPOSE 8080 9990 8787
 
 COPY mysql-connector-java-8.0.25.jar $JBOSS_HOME/modules/system/layers/base/com/mysql/main/
 COPY module.xml $JBOSS_HOME/modules/system/layers/base/com/mysql/main/

@@ -31,68 +31,38 @@ docker compose up -d
 
 ![imagen](Capturas/Docker1.png)
 
-![imagen](Capturas/Docker2.png)
+ 2. **Comprobación de DataSource y Base de Datos**
 
- 2. **Creación, configuración e importación de la Base de Datos**
+Gracias a la configuración definida tanto en el Dockerfile como en el docker-compose no tendremos que cargar la base de datos ni configurar el DataSource manualmente. Podemos comprobar accediendo a la consola habilitada de WildFly:
 
-Primero, mediante la herramienta de DBeaver conectaremos con la BD. Añadiremos una conexión nueva mediante el icono del enchufe(+), y seleccionaremos MySQL para crear la BD.
+ - Puerto: http://localhost:9990/
+ - Usuario y Contraseña: profesor / learn
 
-Introduciremos los datos necesario:
+![imagen](Capturas/DataSource1.png)
+
+
+Si queremos comprobar los datos cargados en la base de datos podemos introducir los siguientes comandos: 
+
+ - Contraseña para usuario root: natalia
+
+ ![imagen](Capturas/MySQL1.png)
+
+También podremos comprobarlo a través de un gestor de bases como es DBeaver:
 
  - Server Host: localhost
  - Database: learninfdb
  - Usuario y Contraseña: root / natalia
 
- ![imagen](Capturas/MySQL1.png)
-
-Para asegurarnos de no tener problemas, iniciamos la conexión con el usuario root, así no tendremos problemas con los usuarios y los permisos. El usuario al que tenemos que darle estos sería ‘learn’, en un script lo haríamos de la siguiente manera: 
-
-```sql
-use mysql;
-
-GRANT ALL PRIVILEGES ON proyectofinal.* TO 'natalia'@'%';
-```
  ![imagen](Capturas/MySQL2.png)
 
- Para la carga de datos simplemente importamos los datos de prueba adjuntos en la carpeta con el nombre de DatosLearn.sql.
+ 3. **Despliegue con SFTP**
 
-  ![imagen](Capturas/MySQL3.png)
- ![imagen](Capturas/MySQL4.png)
-
- 3. **Configuración del DataSource con Wildfly**
-
-Ahora configuramos en DataSource en el puerto 99:90 en el navegador con los estos datos:
-
- - Puerto: http://localhost:9990/
- - Usuario y Contraseña: learn / learning
-
-
-
-Desde aquí nos dirigimos a Configuration-Subsystem-Datasources & Drivers -Datasources.
-Aquí le daremos al botón de añadir una DataSource he introduciremos los siguientes datos:
-
-- Tampalte: MySQL
-- Atribute Name: learninfDS
-- JNDI Name: java:/jdbc/learninfDS
-- Connection URL: jdbc:mysql://learn-mysql:3306/learninfdb
-- UserName y Password: learn / learn
-
-![imagen](Capturas/DataSource1.png)
-![imagen](Capturas/DataSource2.png)
-![imagen](Capturas/DataSource3.png)
-![imagen](Capturas/DataSource4.png)
-![imagen](Capturas/DataSource5.png)
-![imagen](Capturas/DataSource6.png)
-![imagen](Capturas/DataSource7.png)
-
- 4. **Despliegue con SFTP**
-
- Volvemos a la terminal y nos situamos en la carpeta del despliege para conectarnos al servicio SFTP definido en el docker compose con el nombre de **learninf**.
+ Volvemos a la terminal y nos situamos en la carpeta del despliege para conectarnos al servicio SFTP definido en el docker compose con el nombre de **learning**.
 
  - Contraseña: learn
 
 ```
-sftp -P 2201 learninf@localhost
+sftp -P 2201 learning@localhost
 
 cd deployments
 

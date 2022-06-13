@@ -13,7 +13,8 @@ services:
       MYSQL_USER: learn
       MYSQL_PASSWORD: learn
     volumes:
-      - ./db-data:/var/lib/mysql
+      - ./docker/mysql/data:/var/lib/mysql:rw
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
 
   learn-wildfly:
     image: wildfly:learninf
@@ -32,8 +33,10 @@ services:
     ports:
       - "2201:22"
     volumes:
-      - deployments:/home/learninf/deployments
-    command: learninf:learn:1000
+      - deployments:/home/learning/deployments
+    command: learning:learn:1000
 
 volumes:
   deployments:
+  db:
+    driver: local
