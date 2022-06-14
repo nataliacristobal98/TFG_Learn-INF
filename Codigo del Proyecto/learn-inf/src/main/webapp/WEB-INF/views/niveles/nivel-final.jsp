@@ -56,12 +56,21 @@
 
                 <div class="collapse" id="navbarToggleExternalContent">
                     <div class="p-4">
-                        <button href="${mvc.basePath}/perfil" type="button"
-                                class="buttonCustom buttonRed">Perfil</button>
-                        <button href="${mvc.basePath}/login" type="button"
-                                class="buttonCustom buttonOrange">Login</button>
-                        <button href="${mvc.basePath}/signup" type="button"
-                                class="buttonCustom buttonMint">Sign-up</button>
+                        <c:choose>
+                            <c:when test="${alumno != null}">
+                                <a href="${mvc.basePath}/perfil" type="button" class="buttonCustom buttonRed">Perfil</a>
+                            </c:when>
+                            <c:when test="${profesor != null}">
+                                <a href="${mvc.basePath}/profesor" type="button" class="buttonCustom buttonRed">Perfil</a>
+
+                            </c:when>
+                            <c:otherwise>
+                                <a href="${mvc.basePath}/perfil" type="button" class="buttonCustom buttonRed">Perfil</a>
+
+                            </c:otherwise>
+                        </c:choose>
+                        <a href="${mvc.basePath}/login" type="button" class="buttonCustom buttonOrange">Login</a>
+                        <a href="${mvc.basePath}/signup" type="button" class="buttonCustom buttonMint">Sign-up</a>
                     </div>
                 </div>
                 <nav class="navbar navbar-light d-sm-none text-end">

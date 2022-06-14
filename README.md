@@ -35,23 +35,37 @@ docker compose up -d
 
 Gracias a la configuración definida tanto en el Dockerfile como en el docker-compose no tendremos que cargar la base de datos ni configurar el DataSource manualmente. Podemos comprobar accediendo a la consola habilitada de WildFly:
 
- - Puerto: http://localhost:9990/
- - Usuario y Contraseña: profesor / learn
+ - **Puerto:** http://localhost:9990/
+ - **Usuario y Contraseña:** profesor / learn
 
 ![imagen](Capturas/DataSource1.png)
 
 
 Si queremos comprobar los datos cargados en la base de datos podemos introducir los siguientes comandos: 
 
- - Contraseña para usuario root: natalia
+ - **Contraseña para usuario root:** natalia
+
+ ´´´
+  docker exec -it learn-mysql mysql -p
+
+  show databases;
+
+  use learninfdb;
+
+  show tables;
+
+  show columns from alumno;
+
+  select * from alumno;
+ ´´´
 
  ![imagen](Capturas/MySQL1.png)
 
 También podremos comprobarlo a través de un gestor de bases como es DBeaver:
 
- - Server Host: localhost
- - Database: learninfdb
- - Usuario y Contraseña: root / natalia
+ - **Server Host:** localhost
+ - **Database:** learninfdb
+ - **Usuario y Contraseña:** root / natalia
 
  ![imagen](Capturas/MySQL2.png)
 
@@ -59,7 +73,7 @@ También podremos comprobarlo a través de un gestor de bases como es DBeaver:
 
  Volvemos a la terminal y nos situamos en la carpeta del despliege para conectarnos al servicio SFTP definido en el docker compose con el nombre de **learning**.
 
- - Contraseña: learn
+ - **Contraseña:** learn
 
 ```
 sftp -P 2201 learning@localhost
@@ -71,9 +85,9 @@ put learnINF.war
 
 ![imagen](Capturas/SFTP1.png)
 
-En el caso de que nos diera error por tener una fingerprint distinta simplemente nos dirigimos al fichero know-hosts en la carpeta .ssh del equipo y borramos la que pertenezca a localhost. 
+En el caso de que nos diera error por tener una fingerprint distinta simplemente nos dirigimos al fichero know-hosts en la carpeta **.ssh** del equipo y borramos la que pertenezca a localhost. 
 
-Entonces podremos crear una nueva introduciendo la contraseña. Una vez creada, vamos a la carpeta de deployments y hacemos un put del .war en esta. 
+Entonces podremos crear una nueva introduciendo la contraseña. Una vez creada, vamos a la carpeta de deployments y hacemos un put del **.war** en esta. 
 
 Nos aseguramos de que se haya desplegado correctamente en la terminal o en la pestaña de Deployments en la consola de Wildfly. 
 
@@ -96,9 +110,9 @@ Siendo alumno podemos crear una cuenta desde la pantalla de Registro. Introducio
 
 Podemos iniciar de dos maneras siendo alumno, con nuestro código asignado una vez creamos nuestra cuenta o con nuestro email. Los datos para acceder con el usuario anteriormente creado serían:
 
- - Correo: marina_mora@learn.com
- - Código: A001
- - Contraseña: abc
+ - **Correo:** marina_mora@learn.com
+ - **Código:** A001
+ - **Contraseña:** abc
 
 ![imagen](Capturas/Alumno2.png)
 ![imagen](Capturas/Alumno3.png)
@@ -122,8 +136,8 @@ Si no superamos el test habrá que intentarlo de nuevo.
 
 Para iniciar la sesión como profesores tendremos que hacerlo directamente desde la pantalla de Inicio de Sesión, ya que los profesores no cuentan con un registro propio. Para acceder a uno de estos perfiles podemos usar estos datos:
 
- - Correo: anna_c_g@learn.com
- - Contraseña: abc
+ - **Correo:** anna_c_g@learn.com
+ - **Contraseña:** abc
 
 Los profesores solo pueden iniciar sesión con su correo, y su perfil cuenta con un listado de alumnos a su cargo.
 
