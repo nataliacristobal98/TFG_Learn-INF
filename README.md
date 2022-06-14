@@ -33,7 +33,7 @@ docker compose up -d
 
  2. **Comprobación de DataSource y Base de Datos**
 
-Gracias a la configuración definida tanto en el Dockerfile como en el docker-compose no tendremos que cargar la base de datos ni configurar el DataSource manualmente. Podemos comprobar accediendo a la consola habilitada de WildFly:
+Gracias a la configuración definida tanto en el Dockerfile como en el docker-compose no tendremos que cargar la base de datos ni configurar el DataSource manualmente. Podemos comprobar que la DataSource está bien implementada accediendo a la consola habilitada de WildFly:
 
  - **Puerto:** http://localhost:9990/
  - **Usuario y Contraseña:** profesor / learn
@@ -45,7 +45,7 @@ Si queremos comprobar los datos cargados en la base de datos podemos introducir 
 
  - **Contraseña para usuario root:** natalia
 
- ´´´
+```
   docker exec -it learn-mysql mysql -p
 
   show databases;
@@ -57,11 +57,13 @@ Si queremos comprobar los datos cargados en la base de datos podemos introducir 
   show columns from alumno;
 
   select * from alumno;
- ´´´
+```
 
  ![imagen](Capturas/MySQL1.png)
 
-También podremos comprobarlo a través de un gestor de bases como es DBeaver:
+También podremos comprobarlo a través de un gestor de bases como es DBeaver. Primero, mediante la herramienta de DBeaver conectaremos con la BD. Añadiremos una conexión nueva mediante el icono del enchufe(+), y seleccionaremos MySQL para crear la BD.
+
+Introduciremos los datos necesario:
 
  - **Server Host:** localhost
  - **Database:** learninfdb
